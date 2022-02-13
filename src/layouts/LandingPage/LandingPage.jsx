@@ -1,3 +1,4 @@
+import LandingFeature from '../../components/LandingFeature/LandingFeature';
 import './LandingPage.scss';
 import logo from './Logo.svg';
 
@@ -16,6 +17,11 @@ const LandingPage = () => {
             YelpCamp is a curated list of the best camping spots on Earth.
             Unfiltered and unbiased reviews.
           </p>
+          <div className="landing-page__left__welcome-text__features">
+            <LandingFeature text="Add your own camp suggestions." />
+            <LandingFeature text="Leave reviews and experiences." />
+            <LandingFeature text="See locations for all camps." />
+          </div>
         </div>
       </div>
       <div className="landing-page__right" />

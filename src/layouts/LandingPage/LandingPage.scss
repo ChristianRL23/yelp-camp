@@ -15,12 +15,19 @@
 
     &__welcome-text {
       &__title {
-        font-size: 4.7rem;
-        margin-bottom: 1.3rem;
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
       }
 
       &__paragraph {
-        @include s.paragraph(2);
+        @include s.paragraph(1.9);
+        margin-bottom: 1.5rem;
+      }
+
+      &__features {
+        & > * {
+          margin-bottom: 1.2rem;
+        }
       }
     }
   }
