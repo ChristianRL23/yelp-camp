@@ -1,7 +1,8 @@
 import './App.scss';
+import LandingPage from './layouts/LandingPage/LandingPage';
 
 function App() {
-  return <h1>Hello</h1>;
+  return <LandingPage />;
 }
 
 export default App;

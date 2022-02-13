@@ -1,0 +1,10 @@
+@mixin layoutPadding {
+  padding: 3rem 10rem;
+}
+
+@mixin paragraph($fontSize) {
+  color: #696969;
+  font-size: #{$fontSize}rem;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+}

@@ -1,0 +1,35 @@
+@use './../../shared' as s;
+
+.landing-page {
+  display: flex;
+  height: 100vh;
+
+  &__left {
+    @include s.layoutPadding;
+    width: 55%;
+    height: 100%;
+
+    &__header {
+      margin-bottom: 7rem;
+    }
+
+    &__welcome-text {
+      &__title {
+        font-size: 4.7rem;
+        margin-bottom: 1.3rem;
+      }
+
+      &__paragraph {
+        @include s.paragraph(2);
+      }
+    }
+  }
+
+  &__right {
+    background-image: url('./Hero-Image.jpg');
+    width: 45%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+}
