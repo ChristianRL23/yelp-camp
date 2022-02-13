@@ -1,3 +1,4 @@
+import Button from '../../components/Button/Button';
 import LandingFeature from '../../components/LandingFeature/LandingFeature';
 import './LandingPage.scss';
 import logo from './Logo.svg';
@@ -22,6 +23,7 @@ const LandingPage = () => {
             <LandingFeature text="Leave reviews and experiences." />
             <LandingFeature text="See locations for all camps." />
           </div>
+          <Button textContent="View Campgrounds" />
         </div>
       </div>
       <div className="landing-page__right" />

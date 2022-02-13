@@ -1,4 +1,5 @@
 @use './../../shared' as s;
+$element-spacing: 1.6rem;
 
 .landing-page {
   display: flex;
@@ -16,15 +17,17 @@
     &__welcome-text {
       &__title {
         font-size: 4.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: $element-spacing;
       }
 
       &__paragraph {
         @include s.paragraph(1.9);
-        margin-bottom: 1.5rem;
+        margin-bottom: $element-spacing;
       }
 
       &__features {
+        margin-bottom: $element-spacing + 0.2;
+
         & > * {
           margin-bottom: 1.2rem;
         }
