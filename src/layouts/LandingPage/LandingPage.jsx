@@ -32,7 +32,11 @@ const LandingPage = () => {
             <LandingFeature text="Leave reviews and experiences." />
             <LandingFeature text="See locations for all camps." />
           </div>
-          <Button clickFn={showHomePage} textContent="View Campgrounds" />
+          <Button
+            clickFn={showHomePage}
+            textContent="View Campgrounds"
+            theme="black"
+          />
           <div className="landing-page__left__welcome-text__partners">
             <h6 className="landing-page__left__welcome-text__partners__title">
               Partnered with:

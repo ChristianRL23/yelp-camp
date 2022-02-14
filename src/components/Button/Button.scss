@@ -8,4 +8,16 @@
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
+
+  &--black {
+    @extend .button;
+    color: var(--color-primary-white);
+    background-color: var(--color-primary-black);
+  }
+
+  &--white {
+    @extend .button;
+    background-color: var(--color-primary-white);
+    color: var(--color-primary-black);
+  }
 }

@@ -27,7 +27,7 @@ const HomePage = () => {
                 type="text"
               />
             </div>
-            <Button textContent="Search" />
+            <Button textContent="Search" theme="black" />
           </form>
           <a
             className="home-page__welcome__content__add-campground-link"

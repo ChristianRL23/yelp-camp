@@ -2,7 +2,7 @@ import './Button.scss';
 
 const Button = (props) => {
   return (
-    <button onClick={props.clickFn} className="button">
+    <button onClick={props.clickFn} className={`button--${props.theme}`}>
       {props.textContent}
     </button>
   );
