@@ -1,0 +1,61 @@
+@use './../../shared' as s;
+$elements-spacing: 1.3rem;
+
+.home-page {
+  @include s.layoutPadding;
+
+  &__welcome {
+    background-color: var(--color-primary-sand);
+    border-radius: var(--border-radius-element);
+    padding: 4rem 3rem;
+
+    &__content {
+      width: 35%;
+
+      &__title {
+        font-size: 2.5rem;
+        margin-bottom: $elements-spacing;
+      }
+
+      &__paragraph {
+        @include s.paragraph(1.7);
+        margin-bottom: $elements-spacing;
+      }
+
+      &__form {
+        display: flex;
+        gap: $elements-spacing;
+        margin-bottom: 1.5rem;
+
+        &__input-container {
+          display: flex;
+          background-color: #fff;
+          gap: $elements-spacing;
+          padding: 1.5rem;
+
+          &__icon {
+            width: 1.6rem;
+          }
+
+          &__input {
+            align-self: stretch;
+            border: none;
+            @include s.paragraph(1.6);
+            font-family: inherit;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+
+      &__add-campground-link {
+        &:link,
+        &:visited {
+          @include s.paragraph(1.6);
+        }
+      }
+    }
+  }
+}
