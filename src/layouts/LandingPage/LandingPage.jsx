@@ -5,8 +5,14 @@ import logo from './Logo.svg';
 import airbnbLogo from './Airbnb.svg';
 import bookingLogo from './Booking.svg';
 import plumGuideLogo from './Plum-Guide.svg';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+  const showHomePage = () => {
+    navigate('/home');
+  };
+
   return (
     <section className="landing-page">
       <div className="landing-page__left">
@@ -26,7 +32,7 @@ const LandingPage = () => {
             <LandingFeature text="Leave reviews and experiences." />
             <LandingFeature text="See locations for all camps." />
           </div>
-          <Button textContent="View Campgrounds" />
+          <Button clickFn={showHomePage} textContent="View Campgrounds" />
           <div className="landing-page__left__welcome-text__partners">
             <h6 className="landing-page__left__welcome-text__partners__title">
               Partnered with:
