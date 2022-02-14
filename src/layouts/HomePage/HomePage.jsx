@@ -4,6 +4,7 @@ import './HomePage.scss';
 import searchIcon from './Search-Icon.svg';
 import { useSelector } from 'react-redux';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const HomePage = () => {
   const campgrounds = useSelector((state) => state.campgrounds);
@@ -53,6 +54,7 @@ const HomePage = () => {
           />
         ))}
       </main>
+      <Footer />
     </section>
   );
 };
