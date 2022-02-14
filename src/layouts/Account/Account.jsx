@@ -1,12 +1,19 @@
 import AccountInput from '../../components/AccountInput/AccountInput';
 import './Account.scss';
 import quoteAuthor from './User.svg';
+import logo from './Logo.svg';
 import Button from './../../components/Button/Button';
 
 const Account = () => {
   return (
     <section className="account">
       <div className="account__left">
+        <header className="account__left__header">
+          <img src={logo} alt="Logo" />
+          <div className="account__left__header__back">
+            <p> &#8592; Back to campgrounds</p>
+          </div>
+        </header>
         <div className="account__left__content">
           <h3 className="account__left__content__title">
             Start exploring camps from all around the world.
