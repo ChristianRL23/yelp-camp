@@ -3,12 +3,14 @@ import CampCard from '../../components/CampCard/CampCard';
 import './HomePage.scss';
 import searchIcon from './Search-Icon.svg';
 import { useSelector } from 'react-redux';
+import Header from '../../components/Header/Header';
 
 const HomePage = () => {
   const campgrounds = useSelector((state) => state.campgrounds);
 
   return (
     <section className="home-page">
+      <Header />
       <article className="home-page__welcome">
         <div className="home-page__welcome__content">
           <h3 className="home-page__welcome__content__title">

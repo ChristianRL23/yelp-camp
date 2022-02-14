@@ -1,0 +1,40 @@
+@use './../../shared' as s;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  &__left {
+    img {
+      height: 3.5rem;
+    }
+
+    &__home {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        @include s.paragraph(1.5);
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__right {
+    &__login {
+      &:link,
+      &:visited {
+        text-decoration: none;
+        font-size: 1.6rem;
+        color: rgb(124, 124, 124);
+        font-weight: 300;
+      }
+    }
+  }
+}
