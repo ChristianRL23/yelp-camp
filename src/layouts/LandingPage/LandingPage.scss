@@ -1,5 +1,6 @@
 @use './../../shared' as s;
-$element-spacing: 1.6rem;
+$element-spacing: 2.3rem;
+$paragraph-font-size: 1.9;
 
 .landing-page {
   display: flex;
@@ -15,13 +16,14 @@ $element-spacing: 1.6rem;
     }
 
     &__welcome-text {
+      width: 80%;
       &__title {
         font-size: 4.5rem;
         margin-bottom: $element-spacing;
       }
 
       &__paragraph {
-        @include s.paragraph(1.9);
+        @include s.paragraph($paragraph-font-size);
         margin-bottom: $element-spacing;
       }
 
@@ -30,6 +32,20 @@ $element-spacing: 1.6rem;
 
         & > * {
           margin-bottom: 1.2rem;
+        }
+      }
+
+      &__partners {
+        margin-top: 3rem;
+
+        &__title {
+          @include s.paragraph($paragraph-font-size);
+          margin-bottom: 0.8rem;
+        }
+
+        &__logos {
+          display: flex;
+          gap: 2.5rem;
         }
       }
     }
