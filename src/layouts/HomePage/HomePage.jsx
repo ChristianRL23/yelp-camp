@@ -2,9 +2,11 @@ import Button from '../../components/Button/Button';
 import CampCard from '../../components/CampCard/CampCard';
 import './HomePage.scss';
 import searchIcon from './Search-Icon.svg';
-import mountUlap from './Mount-Ulap.png';
+import { useSelector } from 'react-redux';
 
 const HomePage = () => {
+  const campgrounds = useSelector((state) => state.campgrounds);
+
   return (
     <section className="home-page">
       <article className="home-page__welcome">
@@ -40,36 +42,14 @@ const HomePage = () => {
         </div>
       </article>
       <main className="home-page__campgrounds">
-        <CampCard
-          image={mountUlap}
-          name="Test Camp"
-          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
-        />
-        <CampCard
-          image={mountUlap}
-          name="Test Camp"
-          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
-        />
-        <CampCard
-          image={mountUlap}
-          name="Test Camp"
-          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
-        />
-        <CampCard
-          image={mountUlap}
-          name="Test Camp"
-          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
-        />
-        <CampCard
-          image={mountUlap}
-          name="Test Camp"
-          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
-        />
-        <CampCard
-          image={mountUlap}
-          name="Test Camp"
-          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
-        />
+        {campgrounds.map((campground) => (
+          <CampCard
+            name={campground.name}
+            image={campground.image}
+            description={campground.shortDescription}
+            key={campground.id}
+          />
+        ))}
       </main>
     </section>
   );
