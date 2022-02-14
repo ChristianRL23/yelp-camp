@@ -1,6 +1,6 @@
 @use './../../shared' as s;
 $element-spacing: 2.3rem;
-$paragraph-font-size: 1.9;
+$paragraph-font-size: 1.85;
 
 .landing-page {
   display: flex;
@@ -31,7 +31,7 @@ $paragraph-font-size: 1.9;
         margin-bottom: $element-spacing + 0.2;
 
         & > * {
-          margin-bottom: 1.2rem;
+          margin-bottom: 1.6rem;
         }
       }
 
