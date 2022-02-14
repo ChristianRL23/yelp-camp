@@ -1,11 +1,26 @@
+import AccountInput from '../../components/AccountInput/AccountInput';
 import './Account.scss';
 import quoteAuthor from './User.svg';
+import Button from './../../components/Button/Button';
 
 const Account = () => {
   return (
     <section className="account">
       <div className="account__left">
-        <h3>Start</h3>
+        <div className="account__left__content">
+          <h3 className="account__left__content__title">
+            Start exploring camps from all around the world.
+          </h3>
+          <form className="account__left__content__form">
+            <AccountInput label="Username" placeholder="johndoe_91" />
+            <AccountInput label="Password" placeholder="Enter Your Password" />
+            <Button
+              style={{ width: '100%' }}
+              theme="black"
+              textContent="Login"
+            />
+          </form>
+        </div>
       </div>
       <div className="account__right">
         <div className="account__right__quote">

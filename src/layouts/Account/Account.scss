@@ -6,6 +6,24 @@
 
   &__left {
     width: 55%;
+    display: flex;
+    justify-content: center;
+
+    &__content {
+      margin-top: 10rem;
+      padding: 0 10rem;
+
+      &__title {
+        font-size: 3.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
   }
 
   &__right {
@@ -23,6 +41,7 @@
         font-size: 2.6rem;
         line-height: 1.5;
         margin-bottom: 1.5rem;
+        font-weight: 600;
       }
 
       &__author {
