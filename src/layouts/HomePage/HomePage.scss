@@ -43,6 +43,7 @@ $elements-spacing: 1.3rem;
 
           &__input {
             align-self: stretch;
+            width: 100%;
             border: none;
             @include s.paragraph(1.6);
             font-family: inherit;
