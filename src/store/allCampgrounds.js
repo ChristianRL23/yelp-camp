@@ -139,8 +139,7 @@ const allCampgrounds = [
   {
     name: 'Buloy Springs',
     image: buloy,
-    shortDescription:
-      'This is one of the best beach camping sites, beautiful and pristine.',
+    shortDescription: 'A quiet place where mountains and lakes abound.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
     id: '06',

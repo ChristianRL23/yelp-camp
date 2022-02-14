@@ -9,6 +9,8 @@ $elements-spacing: 1.3rem;
 
   &__image {
     width: 100%;
+    border-radius: var(--border-radius-element);
+    height: 20rem;
     margin-bottom: $elements-spacing;
   }
 

@@ -10,6 +10,7 @@ const CampCard = (props) => {
   return (
     <div className="camp-card">
       <img className="camp-card__image" src={props.image} alt="Campground" />
+
       <h6 className="camp-card__name">{props.name}</h6>
       <p className="camp-card__description">{props.description}</p>
       <Button
