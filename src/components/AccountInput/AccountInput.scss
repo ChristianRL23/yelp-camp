@@ -1,0 +1,31 @@
+@use './../../shared' as s;
+
+.account-input {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    @include s.paragraph(1.8);
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    background-color: var(--color-secondary-gray);
+    border: none;
+    height: 5rem;
+    border-radius: var(--border-radius-element);
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--color-secondary-black);
+    font-family: inherit;
+    font-weight: 300;
+
+    &::placeholder {
+      color: rgb(179, 179, 179);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
