@@ -1,6 +1,8 @@
 import Button from '../../components/Button/Button';
+import CampCard from '../../components/CampCard/CampCard';
 import './HomePage.scss';
 import searchIcon from './Search-Icon.svg';
+import mountUlap from './Mount-Ulap.png';
 
 const HomePage = () => {
   return (
@@ -37,6 +39,38 @@ const HomePage = () => {
           </a>
         </div>
       </article>
+      <main className="home-page__campgrounds">
+        <CampCard
+          image={mountUlap}
+          name="Test Camp"
+          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
+        />
+        <CampCard
+          image={mountUlap}
+          name="Test Camp"
+          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
+        />
+        <CampCard
+          image={mountUlap}
+          name="Test Camp"
+          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
+        />
+        <CampCard
+          image={mountUlap}
+          name="Test Camp"
+          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
+        />
+        <CampCard
+          image={mountUlap}
+          name="Test Camp"
+          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
+        />
+        <CampCard
+          image={mountUlap}
+          name="Test Camp"
+          description="This is a beutiful card only for example purposes. You can put the info of your camps here."
+        />
+      </main>
     </section>
   );
 };

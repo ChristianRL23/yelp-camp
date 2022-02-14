@@ -8,6 +8,7 @@ $elements-spacing: 1.3rem;
     background-color: var(--color-primary-sand);
     border-radius: var(--border-radius-element);
     padding: 4rem 3rem;
+    margin-bottom: 6rem;
 
     &__content {
       width: 35%;
@@ -57,5 +58,11 @@ $elements-spacing: 1.3rem;
         }
       }
     }
+  }
+
+  &__campgrounds {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
   }
 }
