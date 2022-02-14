@@ -20,6 +20,14 @@ const Account = () => {
               textContent="Login"
             />
           </form>
+          <div className="account__left__content__option">
+            <p className="account__left__content__option__question">
+              Not a user yet?
+            </p>
+            <a className="account__left__content__option__action" href="#">
+              Create an account
+            </a>
+          </div>
         </div>
       </div>
       <div className="account__right">
