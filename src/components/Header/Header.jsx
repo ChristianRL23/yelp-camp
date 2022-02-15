@@ -1,9 +1,13 @@
 import './Header.scss';
 import Button from './../Button/Button';
 import logo from './Logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const renderSignUpLayout = () => navigate('/sign-up');
+
   return (
     <header className="header">
       <div className="header__left">
@@ -17,7 +21,11 @@ const Header = () => {
           Login
         </Link>
 
-        <Button textContent="Create an Account" theme="black" />
+        <Button
+          clickFn={renderSignUpLayout}
+          textContent="Create an Account"
+          theme="black"
+        />
       </div>
     </header>
   );
