@@ -9,7 +9,7 @@ const AccountInput = (props) => {
       <input
         className="account-input__input"
         id={props.label}
-        type="text"
+        type={props.type}
         placeholder={props.placeholder}
       />
     </div>

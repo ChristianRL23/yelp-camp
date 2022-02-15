@@ -22,9 +22,14 @@ const Account = () => {
             Start exploring camps from all around the world.
           </h3>
           <form className="account__left__content__form">
-            <AccountInput label="Username" placeholder="johndoe_91" />
+            <AccountInput
+              type="text"
+              label="Username"
+              placeholder="johndoe_91"
+            />
             <AccountInput
               label="Password"
+              type="password"
               placeholder={
                 currentPath === '/login'
                   ? 'Enter Your Password'
