@@ -5,12 +5,16 @@ import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
 import Button from './../../components/Button/Button';
 import { Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { usersActions } from './../../store/users';
 
 const Account = () => {
+  const dispatch = useDispatch();
   const [usernameInputValue, setUsernameInputValue] = useState('');
   const [usernameInputError, setUsernameInputError] = useState(null);
   const [passwordInputValue, setPasswordInputValue] = useState('');
   const [passwordInputError, setPasswordInputError] = useState(null);
+
   const changeUsernameHandler = (e) => {
     setUsernameInputValue(e.target.value);
   };
@@ -18,6 +22,7 @@ const Account = () => {
     setPasswordInputValue(e.target.value);
   };
 
+  const allUsers = useSelector((state) => state.users);
   const currentPath = useLocation().pathname;
 
   useEffect(() => {
@@ -30,6 +35,13 @@ const Account = () => {
     if (currentPath === '/login') {
       alert('LOGIN');
     } else {
+      dispatch(
+        usersActions.createNewUser({
+          username: usernameInputValue,
+          password: passwordInputValue,
+        })
+      );
+
       if (usernameInputValue === '') {
         setUsernameInputError('The field cannot be empty.');
       } else if (usernameInputValue.length < 8) {
