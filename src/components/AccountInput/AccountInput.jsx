@@ -7,6 +7,8 @@ const AccountInput = (props) => {
         {props.label}
       </label>
       <input
+        value={props.value}
+        onChange={props.onChangeFn}
         className="account-input__input"
         id={props.label}
         type={props.type}

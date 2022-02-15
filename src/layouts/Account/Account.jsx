@@ -1,12 +1,27 @@
 import AccountInput from '../../components/AccountInput/AccountInput';
 import './Account.scss';
+import { useState, useEffect } from 'react';
 import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
 import Button from './../../components/Button/Button';
 import { Link, useLocation } from 'react-router-dom';
 
 const Account = () => {
+  const [usernameInputValue, setUsernameInputValue] = useState('');
+  const [passwordInputValue, setPasswordInputValue] = useState('');
+  const changeUsernameHandler = (e) => {
+    setUsernameInputValue(e.target.value);
+  };
+  const changePasswornameHandler = (e) => {
+    setPasswordInputValue(e.target.value);
+  };
+
   const currentPath = useLocation().pathname;
+
+  useEffect(() => {
+    setUsernameInputValue('');
+    setPasswordInputValue('');
+  }, [currentPath]);
 
   return (
     <section className="account">
@@ -23,11 +38,15 @@ const Account = () => {
           </h3>
           <form className="account__left__content__form">
             <AccountInput
+              value={usernameInputValue}
+              onChangeFn={changeUsernameHandler}
               type="text"
               label="Username"
               placeholder="johndoe_91"
             />
             <AccountInput
+              value={passwordInputValue}
+              onChangeFn={changePasswornameHandler}
               label="Password"
               type="password"
               placeholder={
@@ -39,6 +58,7 @@ const Account = () => {
             <Button
               style={{ width: '100%' }}
               theme="black"
+              clickFn={accountAction}
               textContent={
                 currentPath === '/login' ? 'Login' : 'Create an Account'
               }
