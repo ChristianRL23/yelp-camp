@@ -19,8 +19,10 @@
       }
 
       &__back {
-        @include s.paragraph(1.6);
-        cursor: pointer;
+        a {
+          @include s.paragraph(1.6);
+          cursor: pointer;
+        }
       }
     }
 

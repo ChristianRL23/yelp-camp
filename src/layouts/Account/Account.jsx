@@ -3,6 +3,7 @@ import './Account.scss';
 import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
 import Button from './../../components/Button/Button';
+import { Link } from 'react-router-dom';
 
 const Account = () => {
   return (
@@ -11,7 +12,7 @@ const Account = () => {
         <header className="account__left__header">
           <img src={logo} alt="Logo" />
           <div className="account__left__header__back">
-            <p> &#8592; Back to campgrounds</p>
+            <Link to="/home">&#8592; Back to campgrounds</Link>
           </div>
         </header>
         <div className="account__left__content">
