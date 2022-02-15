@@ -3,9 +3,11 @@ import './Account.scss';
 import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
 import Button from './../../components/Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Account = () => {
+  const currentPath = useLocation().pathname;
+
   return (
     <section className="account">
       <div className="account__left">
@@ -21,20 +23,32 @@ const Account = () => {
           </h3>
           <form className="account__left__content__form">
             <AccountInput label="Username" placeholder="johndoe_91" />
-            <AccountInput label="Password" placeholder="Enter Your Password" />
+            <AccountInput
+              label="Password"
+              placeholder={
+                currentPath === '/login'
+                  ? 'Enter Your Password'
+                  : 'Choose a Password'
+              }
+            />
             <Button
               style={{ width: '100%' }}
               theme="black"
-              textContent="Login"
+              textContent={
+                currentPath === '/login' ? 'Login' : 'Create an Account'
+              }
             />
           </form>
           <div className="account__left__content__option">
             <p className="account__left__content__option__question">
-              Not a user yet?
+              {currentPath === '/login' ? 'Not a user yet?' : 'Already a user?'}
             </p>
-            <a className="account__left__content__option__action" href="#">
-              Create an account
-            </a>
+            <Link
+              to={currentPath === '/login' ? '/sign-up' : '/login'}
+              className="account__left__content__option__action"
+            >
+              {currentPath === '/login' ? 'Create an Account' : 'Sign in'}
+            </Link>
           </div>
         </div>
       </div>
