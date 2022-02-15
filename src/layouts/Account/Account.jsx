@@ -8,7 +8,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Account = () => {
   const [usernameInputValue, setUsernameInputValue] = useState('');
+  const [usernameInputError, setUsernameInputError] = useState(null);
   const [passwordInputValue, setPasswordInputValue] = useState('');
+  const [passwordInputError, setPasswordInputError] = useState(null);
   const changeUsernameHandler = (e) => {
     setUsernameInputValue(e.target.value);
   };
@@ -22,6 +24,29 @@ const Account = () => {
     setUsernameInputValue('');
     setPasswordInputValue('');
   }, [currentPath]);
+
+  const accountAction = (e) => {
+    e.preventDefault();
+    if (currentPath === '/login') {
+      alert('LOGIN');
+    } else {
+      if (usernameInputValue === '') {
+        setUsernameInputError('The field cannot be empty.');
+      } else if (usernameInputValue.length < 8) {
+        setUsernameInputError('The username must be at least 8 characters.');
+      } else {
+        setUsernameInputError(null);
+      }
+
+      if (passwordInputValue === '') {
+        setPasswordInputError('The field cannot be empty.');
+      } else if (passwordInputValue.length < 6) {
+        setPasswordInputError('The password must be at least 6 characters.');
+      } else {
+        setPasswordInputError(null);
+      }
+    }
+  };
 
   return (
     <section className="account">
@@ -38,6 +63,7 @@ const Account = () => {
           </h3>
           <form className="account__left__content__form">
             <AccountInput
+              error={usernameInputError}
               value={usernameInputValue}
               onChangeFn={changeUsernameHandler}
               type="text"
@@ -45,6 +71,7 @@ const Account = () => {
               placeholder="johndoe_91"
             />
             <AccountInput
+              error={passwordInputError}
               value={passwordInputValue}
               onChangeFn={changePasswornameHandler}
               label="Password"

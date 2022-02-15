@@ -3,9 +3,10 @@ import './AccountInput.scss';
 const AccountInput = (props) => {
   return (
     <div className="account-input">
-      <label className="account-input__label" htmlFor={props.label}>
-        {props.label}
-      </label>
+      <div className="account-input__label-container">
+        <label htmlFor={props.label}>{props.label}</label>
+        {props.error && <p>{props.error}</p>}
+      </div>
       <input
         value={props.value}
         onChange={props.onChangeFn}
