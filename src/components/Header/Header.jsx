@@ -1,6 +1,7 @@
 import './Header.scss';
 import Button from './../Button/Button';
 import logo from './Logo.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -12,9 +13,10 @@ const Header = () => {
         </a>
       </div>
       <div className="header__right">
-        <a className="header__right__login" href="#">
+        <Link className="header__right__login" to="/login">
           Login
-        </a>
+        </Link>
+
         <Button textContent="Create an Account" theme="black" />
       </div>
     </header>

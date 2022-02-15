@@ -10,6 +10,7 @@ function App() {
       <Route path="/welcome" element={<LandingPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/login" element={<Account />} />
+      <Route path="/sign-up" element={<Account />} />
     </Routes>
   );
 }
