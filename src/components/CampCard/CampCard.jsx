@@ -14,6 +14,7 @@ const CampCard = (props) => {
       <h6 className="camp-card__name">{props.name}</h6>
       <p className="camp-card__description">{props.description}</p>
       <Button
+        clickFn={props.clickFn}
         style={buttonStyles}
         textContent="View Campground"
         theme="white"

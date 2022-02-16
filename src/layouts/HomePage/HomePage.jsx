@@ -2,12 +2,23 @@ import Button from '../../components/Button/Button';
 import CampCard from '../../components/CampCard/CampCard';
 import './HomePage.scss';
 import searchIcon from './Search-Icon.svg';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const campgrounds = useSelector((state) => state.campgrounds);
+
+  const selectCampground = (e) => {
+    const campgroundName = e.target.parentElement.children[1].textContent;
+    const campgroundNameUrlParameter = campgroundName
+      .toLowerCase()
+      .split(' ')
+      .join('-');
+    navigate(`/campground/${campgroundNameUrlParameter}`);
+  };
 
   return (
     <section className="home-page">
@@ -47,6 +58,7 @@ const HomePage = () => {
       <main className="home-page__campgrounds">
         {campgrounds.map((campground) => (
           <CampCard
+            clickFn={selectCampground}
             name={campground.name}
             image={campground.image}
             description={campground.shortDescription}

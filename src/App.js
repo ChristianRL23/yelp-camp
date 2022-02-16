@@ -12,7 +12,7 @@ function App() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/login" element={<Account />} />
       <Route path="/sign-up" element={<Account />} />
-      <Route path="/individual-camp" element={<IndividualCamp />} />
+      <Route path="/campground/:campgroundName" element={<IndividualCamp />} />
     </Routes>
   );
 }
