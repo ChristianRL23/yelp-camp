@@ -1,0 +1,5 @@
+@use './../../shared' as s;
+
+.individual-camp {
+  @include s.layoutPadding;
+}
