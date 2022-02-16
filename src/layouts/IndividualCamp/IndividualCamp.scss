@@ -1,5 +1,16 @@
 @use './../../shared' as s;
 
+$container-padding: 2rem;
+
 .individual-camp {
   @include s.layoutPadding;
+
+  &__container {
+    display: flex;
+
+    &__sidebar {
+      padding: $container-padding;
+      @include s.elementBorder;
+    }
+  }
 }
