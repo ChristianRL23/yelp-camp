@@ -10,7 +10,10 @@ const IndividualCamp = () => {
         <aside className="individual-camp__container__sidebar">
           <img src={campMap} alt="Camp location" />
         </aside>
-        <main></main>
+        <main className="individual-camp__contianer__campgorund">
+          <div className="individual-camp__container__campgorund__info"></div>
+          <div className="individual-camp__container__campgorund__comments"></div>
+        </main>
       </div>
     </section>
   );
