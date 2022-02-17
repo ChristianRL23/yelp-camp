@@ -1,6 +1,14 @@
 import AccountInput from '../../components/AccountInput/AccountInput';
 import './Account.scss';
-import { useState, useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
+import {
+  fullNameInputReducer,
+  fullNameInitialState,
+  usernameInputReducer,
+  usernameInitialState,
+  passwordInputReducer,
+  passwordInitialState,
+} from './inputsReducers';
 import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
 import Button from './../../components/Button/Button';
@@ -9,55 +17,112 @@ import { useDispatch, useSelector } from 'react-redux';
 import { usersActions } from './../../store/users';
 
 const Account = () => {
-  const dispatch = useDispatch();
-  const [usernameInputValue, setUsernameInputValue] = useState('');
-  const [usernameInputError, setUsernameInputError] = useState(null);
-  const [passwordInputValue, setPasswordInputValue] = useState('');
-  const [passwordInputError, setPasswordInputError] = useState(null);
+  const [fullNameInputState, fullNameInputDispatch] = useReducer(
+    fullNameInputReducer,
+    fullNameInitialState
+  );
 
-  const changeUsernameHandler = (e) => {
-    setUsernameInputValue(e.target.value);
+  const [usernameInputState, usernameInputDispatch] = useReducer(
+    usernameInputReducer,
+    usernameInitialState
+  );
+
+  const [passwordInputState, passwordInputDispatch] = useReducer(
+    passwordInputReducer,
+    passwordInitialState
+  );
+
+  const { valid: fullNameInputValid } = fullNameInputState;
+  const { valid: passwordInputValid } = passwordInputState;
+  const { valid: usernameInputValid } = usernameInputState;
+
+  const changeFullNameInputHandler = (e) => {
+    fullNameInputDispatch({ type: 'CHANGE', value: e.target.value });
   };
-  const changePasswornameHandler = (e) => {
-    setPasswordInputValue(e.target.value);
+
+  const changePasswordInputHandler = (e) => {
+    passwordInputDispatch({ type: 'CHANGE', value: e.target.value });
   };
+
+  const changeUsernameInputHandler = (e) => {
+    usernameInputDispatch({ type: 'CHANGE', value: e.target.value });
+  };
+
+  const stateDispatch = useDispatch();
 
   const allUsers = useSelector((state) => state.users);
   const currentPath = useLocation().pathname;
 
+  useEffect(() => {}, [currentPath]);
+
   useEffect(() => {
-    setUsernameInputValue('');
-    setPasswordInputValue('');
-  }, [currentPath]);
+    if (fullNameInputValid && passwordInputValid && usernameInputValid) {
+      alert('ALL GOOD');
+    }
+  }, [fullNameInputValid, passwordInputValid, usernameInputValid]);
 
   const accountAction = (e) => {
     e.preventDefault();
-    if (currentPath === '/login') {
+    const inputName = fullNameInputState.value.split(' ');
+
+    if (fullNameInputState.value === '') {
+      fullNameInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The field cannot be empty.',
+      });
+    } else if (inputName[1] === undefined || inputName[1] === '') {
+      fullNameInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The full name must be made up of first and last name.',
+      });
+    } else {
+      fullNameInputDispatch({ type: 'VALIDATE' });
+    }
+
+    if (passwordInputState.value === '') {
+      passwordInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The field cannot be empty.',
+      });
+    } else if (passwordInputState.value.length < 6) {
+      passwordInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The password must be at least 6 characters.',
+      });
+    } else {
+      passwordInputDispatch({ type: 'VALIDATE' });
+    }
+
+    if (usernameInputState.value === '') {
+      usernameInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The field cannot be empty.',
+      });
+    } else if (usernameInputState.value.length < 8) {
+      usernameInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The username must be at least 8 characters.',
+      });
+    } else if (
+      allUsers.find((user) => user.username === usernameInputState.value)
+    ) {
+      usernameInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The username already exist.',
+      });
+    } else {
+      usernameInputDispatch({ type: 'VALIDATE' });
+    }
+
+    /* if (currentPath === '/login') {
       alert('LOGIN');
     } else {
-      dispatch(
+      stateDispatch(
         usersActions.createNewUser({
           username: usernameInputValue,
           password: passwordInputValue,
         })
-      );
-
-      if (usernameInputValue === '') {
-        setUsernameInputError('The field cannot be empty.');
-      } else if (usernameInputValue.length < 8) {
-        setUsernameInputError('The username must be at least 8 characters.');
-      } else {
-        setUsernameInputError(null);
-      }
-
-      if (passwordInputValue === '') {
-        setPasswordInputError('The field cannot be empty.');
-      } else if (passwordInputValue.length < 6) {
-        setPasswordInputError('The password must be at least 6 characters.');
-      } else {
-        setPasswordInputError(null);
-      }
-    }
+      ); */
   };
 
   return (
@@ -75,17 +140,25 @@ const Account = () => {
           </h3>
           <form className="account__left__content__form">
             <AccountInput
-              error={usernameInputError}
-              value={usernameInputValue}
-              onChangeFn={changeUsernameHandler}
+              error={fullNameInputState.errorMsg}
+              value={fullNameInputState.value}
+              onChangeFn={changeFullNameInputHandler}
+              type="text"
+              label="Full Name"
+              placeholder="Bill Prescott"
+            />
+            <AccountInput
+              error={usernameInputState.errorMsg}
+              value={usernameInputState.value}
+              onChangeFn={changeUsernameInputHandler}
               type="text"
               label="Username"
               placeholder="johndoe_91"
             />
             <AccountInput
-              error={passwordInputError}
-              value={passwordInputValue}
-              onChangeFn={changePasswornameHandler}
+              error={passwordInputState.errorMsg}
+              value={passwordInputState.value}
+              onChangeFn={changePasswordInputHandler}
               label="Password"
               type="password"
               placeholder={
