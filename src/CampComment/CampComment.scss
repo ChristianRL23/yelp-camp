@@ -1,0 +1,27 @@
+@use './../shared' as s;
+
+$elements-spacing: 1.5rem;
+
+.camp-comment {
+  border-bottom: 1px solid var(--color-primary-gray);
+  padding: $elements-spacing 0;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $elements-spacing;
+
+    &__author {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    &__time {
+      @include s.paragraph(1.5);
+    }
+  }
+
+  &__content {
+    @include s.paragraph(1.6);
+  }
+}
