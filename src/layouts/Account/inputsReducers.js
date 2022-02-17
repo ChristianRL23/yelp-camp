@@ -14,6 +14,8 @@ export const fullNameInputReducer = (state, action) => {
       };
     case 'VALIDATE':
       return { value: state.value, errorMsg: '', valid: true };
+    case 'CLEAN':
+      return { value: '', errorMsg: '', valid: false };
     default:
       return { value: '', errorMsg: '', valid: false };
   }
@@ -41,6 +43,8 @@ export const passwordInputReducer = (state, action) => {
       };
     case 'VALIDATE':
       return { value: state.value, errorMsg: '', valid: true };
+    case 'CLEAN':
+      return { value: '', errorMsg: '', valid: false };
     default:
       return { value: '', errorMsg: '', valid: false };
   }
@@ -68,6 +72,8 @@ export const usernameInputReducer = (state, action) => {
       };
     case 'VALIDATE':
       return { value: state.value, errorMsg: '', valid: true };
+    case 'CLEAN':
+      return { value: '', errorMsg: '', valid: false };
     default:
       return { value: '', errorMsg: '', valid: false };
   }

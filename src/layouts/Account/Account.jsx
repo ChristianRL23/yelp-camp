@@ -57,7 +57,16 @@ const Account = () => {
 
   useEffect(() => {
     if (fullNameInputValid && passwordInputValid && usernameInputValid) {
-      alert('ALL GOOD');
+      stateDispatch(
+        usersActions.createNewUser({
+          username: usernameInputState.value,
+          password: passwordInputState.value,
+          fullName: fullNameInputState.value,
+        })
+      );
+      fullNameInputDispatch({ type: 'CLEAN' });
+      passwordInputDispatch({ type: 'CLEAN' });
+      usernameInputDispatch({ type: 'CLEAN' });
     }
   }, [fullNameInputValid, passwordInputValid, usernameInputValid]);
 

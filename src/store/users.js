@@ -1,12 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const usersInitialState = [
-  {
-    username: 'app_admin',
-    password: 'secure$password!',
-    fullName: 'App Admin',
-  },
-];
+const usersInitialState = [];
 
 const usersSlice = createSlice({
   name: 'users',
