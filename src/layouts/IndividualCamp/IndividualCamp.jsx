@@ -11,7 +11,6 @@ const IndividualCamp = () => {
   const allCampgrounds = useSelector((state) => state.campgrounds);
 
   useEffect(() => {
-    console.log(params);
     const campgroundNameLower = params.campgroundName.split('-');
     const campgroundNameArr = campgroundNameLower.map((word) => {
       const firstLetterUpper = word[0].toUpperCase();
@@ -23,10 +22,7 @@ const IndividualCamp = () => {
       (campground) => campground.name === campgroundName
     );
     setCampground(currentCampground);
-    console.log('EFFECT');
   }, []);
-
-  console.log('HELLO');
 
   return (
     campground !== null && (
@@ -39,12 +35,20 @@ const IndividualCamp = () => {
           <main className="individual-camp__contianer__campground">
             <div className="individual-camp__container__campground__info">
               <img src={campground.image} alt="Campground" />
-              <div className="">
-                <h5>{campground.name}</h5>
-                <h6>{campground.price}/night</h6>
+              <div className="individual-camp__container__campground__info__main">
+                <h5 className="individual-camp__container__campground__info__main__name">
+                  {campground.name}
+                </h5>
+                <h6 className="individual-camp__container__campground__info__main__price">
+                  ${campground.price}/night
+                </h6>
               </div>
-              <p>{campground.longDescription}</p>
-              <p>Submited by: {campground.createdBy}</p>
+              <p className="individual-camp__container__campground__info__description">
+                {campground.longDescription}
+              </p>
+              <p className="individual-camp__container__campground__info__author">
+                Submited by: {campground.createdBy}
+              </p>
             </div>
             <div className="individual-camp__container__camprgound__comments"></div>
           </main>
