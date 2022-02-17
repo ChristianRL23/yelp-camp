@@ -1,6 +1,6 @@
 @use './../../shared' as s;
 
-$container-padding: 2rem;
+$container-padding: 3rem;
 $elements-spacing: 2rem;
 
 .individual-camp {
@@ -17,6 +17,9 @@ $elements-spacing: 2rem;
     }
 
     &__campground {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
       &__info {
         padding: $container-padding;
         @include s.elementBorder;
@@ -49,6 +52,11 @@ $elements-spacing: 2rem;
           @include s.paragraph(1.7);
           font-style: italic;
         }
+      }
+      &__comments {
+        padding: $container-padding;
+        padding-top: 1rem;
+        @include s.elementBorder;
       }
     }
   }

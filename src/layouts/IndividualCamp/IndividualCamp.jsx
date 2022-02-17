@@ -4,6 +4,7 @@ import campMap from './Map.png';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import CampComment from '../../CampComment/CampComment';
 
 const IndividualCamp = () => {
   const [campground, setCampground] = useState(null);
@@ -32,7 +33,7 @@ const IndividualCamp = () => {
           <aside className="individual-camp__container__sidebar">
             <img src={campMap} alt="Camp location" />
           </aside>
-          <main className="individual-camp__contianer__campground">
+          <main className="individual-camp__container__campground">
             <div className="individual-camp__container__campground__info">
               <img src={campground.image} alt="Campground" />
               <div className="individual-camp__container__campground__info__main">
@@ -50,7 +51,14 @@ const IndividualCamp = () => {
                 Submited by: {campground.createdBy}
               </p>
             </div>
-            <div className="individual-camp__container__camprgound__comments"></div>
+            <div className="individual-camp__container__campground__comments">
+              {campground.comments.map((comment) => (
+                <CampComment
+                  author={comment.author}
+                  content={comment.content}
+                />
+              ))}
+            </div>
           </main>
         </div>
       </section>
