@@ -14,6 +14,8 @@ const allCampgrounds = [
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
     id: '01',
+    createdBy: 'Andrew Mike',
+    price: 89.99,
     comments: [
       {
         author: 'Adam Jones',
@@ -40,6 +42,8 @@ const allCampgrounds = [
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
     id: '02',
+    createdBy: 'Andrew Mike',
+    price: 119.99,
     comments: [
       {
         author: 'Adam Jones',
@@ -66,6 +70,8 @@ const allCampgrounds = [
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
     id: '03',
+    createdBy: 'Andrew Mike',
+    price: 94.99,
     comments: [
       {
         author: 'Adam Jones',
@@ -92,6 +98,8 @@ const allCampgrounds = [
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
     id: '04',
+    createdBy: 'Andrew Mike',
+    price: 119.99,
     comments: [
       {
         author: 'Adam Jones',
@@ -118,6 +126,8 @@ const allCampgrounds = [
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
     id: '05',
+    createdBy: 'Andrew Mike',
+    price: 99.99,
     comments: [
       {
         author: 'Adam Jones',
@@ -143,6 +153,8 @@ const allCampgrounds = [
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
     id: '06',
+    createdBy: 'Andrew Mike',
+    price: 104.99,
     comments: [
       {
         author: 'Adam Jones',
