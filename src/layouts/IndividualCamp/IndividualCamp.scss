@@ -53,10 +53,16 @@ $elements-spacing: 2rem;
           font-style: italic;
         }
       }
-      &__comments {
+
+      &__reviews {
         padding: $container-padding;
         padding-top: 1rem;
         @include s.elementBorder;
+        display: flex;
+        flex-direction: column;
+        &__comments {
+          margin-bottom: $elements-spacing;
+        }
       }
     }
   }
