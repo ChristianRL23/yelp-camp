@@ -5,7 +5,7 @@ import campMap from './Map.png';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import CampComment from '../../CampComment/CampComment';
+import CampComment from './../../components/CampComment/CampComment';
 import Button from '../../components/Button/Button';
 
 const IndividualCamp = () => {
