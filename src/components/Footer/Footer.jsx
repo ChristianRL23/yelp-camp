@@ -1,9 +1,9 @@
 import './Footer.scss';
 import logo from './Logo.svg';
 
-const Footer = () => {
+const Footer = ({ style }) => {
   return (
-    <footer className="footer">
+    <footer style={style} className="footer">
       <img src={logo} alt="Logo" />
     </footer>
   );

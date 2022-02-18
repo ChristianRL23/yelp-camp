@@ -13,7 +13,11 @@ function App() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/login" element={<Account />} />
       <Route path="/sign-up" element={<Account />} />
-      <Route path="/campground-actions" element={<CampgroundActions />} />
+      <Route path="/new-campground" element={<CampgroundActions />} />
+      <Route
+        path="/campground/:campgroundName/new-comment"
+        element={<CampgroundActions />}
+      />
       <Route path="/campground/:campgroundName" element={<IndividualCamp />} />
     </Routes>
   );

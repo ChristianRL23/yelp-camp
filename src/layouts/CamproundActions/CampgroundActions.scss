@@ -3,6 +3,12 @@
 .campground-actions {
   @include s.layoutPadding;
 
+  &--comment {
+    @extend .campground-actions;
+    height: 100vh;
+    position: relative;
+  }
+
   &__form {
     width: 50%;
     margin: 0 auto;
