@@ -11,6 +11,11 @@ const userLoggedSlice = createSlice({
       state.fullName = payload.payload.fullName;
       state.logged = true;
     },
+    logout(state) {
+      state.username = '';
+      state.fullName = '';
+      state.logged = false;
+    },
   },
 });
 

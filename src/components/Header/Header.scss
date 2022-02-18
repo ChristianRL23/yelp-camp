@@ -33,6 +33,12 @@
     }
 
     &__action {
+      font-size: 1.6rem;
+      text-decoration: none;
+      color: var(--color-secondary-black);
+      font-weight: 300;
+      cursor: pointer;
+
       &:link,
       &:visited {
         font-size: 1.6rem;

@@ -2,10 +2,16 @@ import './Header.scss';
 import Button from './../Button/Button';
 import logo from './Logo.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { userLoggedActions } from '../../store/userLogged';
 
 const Header = () => {
+  const stateDispatch = useDispatch();
+  const logoutUser = () => {
+    stateDispatch(userLoggedActions.logout());
+  };
   const userLogged = useSelector((state) => state.userLogged);
+
   const navigate = useNavigate();
   const renderSignUpLayout = () => navigate('/sign-up');
   const userNoLoggedContent = (
@@ -23,9 +29,9 @@ const Header = () => {
   const userLoggedContent = (
     <>
       <h6 className="header__right__username">{userLogged.username}</h6>
-      <Link className="header__right__action" to="/home">
+      <p onClick={logoutUser} className="header__right__action">
         Logout
-      </Link>
+      </p>
     </>
   );
 
