@@ -1,4 +1,4 @@
-import AccountInput from '../../components/AccountInput/AccountInput';
+import Input from '../../components/Input/Input';
 import './Account.scss';
 import { useEffect, useReducer } from 'react';
 import {
@@ -157,7 +157,7 @@ const Account = () => {
             Start exploring camps from all around the world.
           </h3>
           <form className="account__left__content__form">
-            <AccountInput
+            <Input
               error={fullNameInputState.errorMsg}
               value={fullNameInputState.value}
               onChangeFn={changeFullNameInputHandler}
@@ -165,7 +165,7 @@ const Account = () => {
               label="Full Name"
               placeholder="Bill Prescott"
             />
-            <AccountInput
+            <Input
               error={usernameInputState.errorMsg}
               value={usernameInputState.value}
               onChangeFn={changeUsernameInputHandler}
@@ -173,7 +173,7 @@ const Account = () => {
               label="Username"
               placeholder="johndoe_91"
             />
-            <AccountInput
+            <Input
               error={passwordInputState.errorMsg}
               value={passwordInputState.value}
               onChangeFn={changePasswordInputHandler}
