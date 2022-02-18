@@ -1,0 +1,22 @@
+@use './../../shared' as s;
+
+.campground-actions {
+  @include s.layoutPadding;
+
+  &__form {
+    width: 50%;
+    margin: 0 auto;
+
+    &__title {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
