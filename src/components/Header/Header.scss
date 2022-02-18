@@ -27,12 +27,17 @@
   }
 
   &__right {
-    &__login {
+    &__username {
+      font-weight: 400;
+      font-size: 1.6rem;
+    }
+
+    &__action {
       &:link,
       &:visited {
-        text-decoration: none;
         font-size: 1.6rem;
-        color: rgb(124, 124, 124);
+        text-decoration: none;
+        color: var(--color-secondary-black);
         font-weight: 300;
       }
     }
