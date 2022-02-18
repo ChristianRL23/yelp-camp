@@ -15,6 +15,7 @@ import Button from './../../components/Button/Button';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { usersActions } from './../../store/users';
+import { userLoggedActions } from '../../store/userLogged';
 
 const Account = () => {
   const [fullNameInputState, fullNameInputDispatch] = useReducer(
@@ -67,7 +68,15 @@ const Account = () => {
       fullNameInputDispatch({ type: 'CLEAN' });
       passwordInputDispatch({ type: 'CLEAN' });
       usernameInputDispatch({ type: 'CLEAN' });
+
+      stateDispatch(
+        userLoggedActions.login({
+          username: usernameInputState.value,
+          fullName: fullNameInputState.value,
+        })
+      );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fullNameInputValid, passwordInputValid, usernameInputValid]);
 
   const accountAction = (e) => {
