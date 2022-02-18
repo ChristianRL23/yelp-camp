@@ -7,14 +7,21 @@ const Input = (props) => {
         <label htmlFor={props.label}>{props.label}</label>
         {props.error && <p>{props.error}</p>}
       </div>
-      <input
-        value={props.value}
-        onChange={props.onChangeFn}
-        className="input__input"
-        id={props.label}
-        type={props.type}
-        placeholder={props.placeholder}
-      />
+      {props.type === 'textarea' ? (
+        <textarea
+          placeholder={props.placeholder}
+          className="input__textarea"
+        ></textarea>
+      ) : (
+        <input
+          value={props.value}
+          onChange={props.onChangeFn}
+          className="input__input"
+          id={props.label}
+          type={props.type}
+          placeholder={props.placeholder}
+        />
+      )}
     </div>
   );
 };
