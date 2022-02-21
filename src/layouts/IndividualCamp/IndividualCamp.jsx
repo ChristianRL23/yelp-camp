@@ -3,7 +3,7 @@ import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 import campMap from './Map.png';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CampComment from './../../components/CampComment/CampComment';
 import Button from '../../components/Button/Button';
@@ -11,6 +11,7 @@ import Button from '../../components/Button/Button';
 const IndividualCamp = () => {
   const [campground, setCampground] = useState(null);
   const params = useParams();
+  const navigate = useNavigate();
   const allCampgrounds = useSelector((state) => state.campgrounds);
 
   useEffect(() => {
@@ -26,6 +27,10 @@ const IndividualCamp = () => {
     );
     setCampground(currentCampground);
   }, []);
+
+  const addComment = () => {
+    navigate(`new-comment`);
+  };
 
   return (
     campground !== null && (
@@ -63,6 +68,7 @@ const IndividualCamp = () => {
                 ))}
               </div>
               <Button
+                clickFn={addComment}
                 style={{ alignSelf: 'flex-end' }}
                 textContent="Leave a Review"
                 theme="black"
