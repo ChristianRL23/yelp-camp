@@ -8,15 +8,6 @@ import Login from '../../components/Login/Login';
 
 const Account = () => {
   const currentPath = useLocation().pathname;
-  const [currentAction, setCurrentAction] = useState(null);
-
-  useEffect(() => {
-    if (currentPath === '/sign-up') {
-      setCurrentAction('SIGNUP');
-    } else {
-      setCurrentAction('LOGIN');
-    }
-  }, [currentPath]);
 
   return (
     <section className="account">
@@ -31,7 +22,7 @@ const Account = () => {
           <h3 className="account__left__content__title">
             Start exploring camps from all around the world.
           </h3>
-          {currentAction === 'SIGNUP' ? <Signup /> : <Login />}
+          {currentPath === '/sign-up' ? <Signup /> : <Login />}
         </div>
       </div>
       <div className="account__right">
