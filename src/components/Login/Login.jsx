@@ -120,7 +120,7 @@ const Login = () => {
       </form>
       <div className="login__option">
         <p className="login__option__question">Not a user yet?</p>
-        <Link to="/login" className="login__option__action">
+        <Link to="/sign-up" className="login__option__action">
           Create an account
         </Link>
       </div>

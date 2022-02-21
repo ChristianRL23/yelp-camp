@@ -1,6 +1,5 @@
 import Signup from './../../components/Signup/Signup';
 import './Account.scss';
-import { useEffect, useState } from 'react';
 import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
 import { Link, useLocation } from 'react-router-dom';
