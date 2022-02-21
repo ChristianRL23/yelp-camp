@@ -11,6 +11,7 @@ import {
   passwordInitialState,
 } from '../../utils/inputsReducers';
 import { changeInputHandler } from '../../utils/changeInputFunctions';
+import { userLoggedActions } from '../../store/userLogged';
 
 const Login = () => {
   const [formError, setFormError] = useState(null);
@@ -62,7 +63,12 @@ const Login = () => {
       if (user) {
         console.log(user);
         if (user.password === passwordInputState.value) {
-          alert('ALL GOOD');
+          stateDispatch(
+            userLoggedActions.login({
+              fullName: user.fullName,
+              username: user.username,
+            })
+          );
         } else {
           setFormError(true);
         }

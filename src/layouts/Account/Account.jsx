@@ -1,6 +1,6 @@
 import Signup from './../../components/Signup/Signup';
 import './Account.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
 import { Link, useLocation } from 'react-router-dom';
@@ -8,8 +8,15 @@ import Login from '../../components/Login/Login';
 
 const Account = () => {
   const currentPath = useLocation().pathname;
+  const [currentAction, setCurrentAction] = useState(null);
 
-  useEffect(() => {}, [currentPath]);
+  useEffect(() => {
+    if (currentPath === '/sign-up') {
+      setCurrentAction('SIGNUP');
+    } else {
+      setCurrentAction('LOGIN');
+    }
+  }, [currentPath]);
 
   return (
     <section className="account">
@@ -24,8 +31,7 @@ const Account = () => {
           <h3 className="account__left__content__title">
             Start exploring camps from all around the world.
           </h3>
-          <Login />
-          <Signup />
+          {currentAction === 'SIGNUP' ? <Signup /> : <Login />}
         </div>
       </div>
       <div className="account__right">
