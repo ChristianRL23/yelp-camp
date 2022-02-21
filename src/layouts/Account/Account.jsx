@@ -1,4 +1,4 @@
-import Signup from './Signup';
+import Signup from './../../components/Signup/Signup';
 import './Account.scss';
 import { useEffect } from 'react';
 import quoteAuthor from './User.svg';
