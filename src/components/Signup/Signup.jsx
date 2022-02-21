@@ -10,11 +10,12 @@ import {
   usernameInitialState,
   passwordInputReducer,
   passwordInitialState,
-} from './signupInputsReducers';
+} from './../../utils/inputsReducers';
 import { usersActions } from './../../store/users';
 import { userLoggedActions } from '../../store/userLogged';
 import { Link } from 'react-router-dom';
 import { verifySignupInputs } from './verifySignupInputs';
+import { changeInputHandler } from '../../utils/changeInputFunctions';
 
 const Signup = () => {
   const stateDispatch = useDispatch();
@@ -62,19 +63,7 @@ const Signup = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fullNameInputValid, passwordInputValid, usernameInputValid]);
 
-  const changeFullNameInputHandler = (e) => {
-    fullNameInputDispatch({ type: 'CHANGE', value: e.target.value });
-  };
-
-  const changePasswordInputHandler = (e) => {
-    passwordInputDispatch({ type: 'CHANGE', value: e.target.value });
-  };
-
-  const changeUsernameInputHandler = (e) => {
-    usernameInputDispatch({ type: 'CHANGE', value: e.target.value });
-  };
-
-  const accountAction = (e) => {
+  const signup = (e) => {
     e.preventDefault();
     const inputName = fullNameInputState.value.split(' ');
     verifySignupInputs(
@@ -95,7 +84,7 @@ const Signup = () => {
         <Input
           error={fullNameInputState.errorMsg}
           value={fullNameInputState.value}
-          onChangeFn={changeFullNameInputHandler}
+          onChangeFn={(e) => changeInputHandler(e, fullNameInputDispatch)}
           type="text"
           label="Full Name"
           placeholder="Bill Prescott"
@@ -103,7 +92,7 @@ const Signup = () => {
         <Input
           error={usernameInputState.errorMsg}
           value={usernameInputState.value}
-          onChangeFn={changeUsernameInputHandler}
+          onChangeFn={(e) => changeInputHandler(e, usernameInputDispatch)}
           type="text"
           label="Username"
           placeholder="johndoe_91"
@@ -111,7 +100,7 @@ const Signup = () => {
         <Input
           error={passwordInputState.errorMsg}
           value={passwordInputState.value}
-          onChangeFn={changePasswordInputHandler}
+          onChangeFn={(e) => changeInputHandler(e, passwordInputDispatch)}
           label="Password"
           type="password"
           placeholder="Choose a Password"
@@ -119,7 +108,7 @@ const Signup = () => {
         <Button
           style={{ width: '100%' }}
           theme="black"
-          clickFn={accountAction}
+          clickFn={signup}
           textContent="Create an Account"
         />
       </form>

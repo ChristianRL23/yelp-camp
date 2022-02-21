@@ -1,0 +1,8 @@
+@use './../../shared' as s;
+
+@include s.accountStyles('login');
+
+.login__error {
+  @include s.errorMessage;
+  text-align: center;
+}
