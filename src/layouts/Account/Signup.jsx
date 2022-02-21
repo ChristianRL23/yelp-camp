@@ -1,3 +1,4 @@
+import './Signup.scss';
 import { useReducer, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from './../../components/Button/Button';
@@ -90,7 +91,7 @@ const Signup = () => {
 
   return (
     <>
-      <form className="account__left__content__form">
+      <form className="signup">
         <Input
           error={fullNameInputState.errorMsg}
           value={fullNameInputState.value}
@@ -122,11 +123,9 @@ const Signup = () => {
           textContent="Create an Account"
         />
       </form>
-      <div className="account__left__content__option">
-        <p className="account__left__content__option__question">
-          Already a user?
-        </p>
-        <Link to="/login" className="account__left__content__option__action">
+      <div className="signup__option">
+        <p className="signup__option__question">Already a user?</p>
+        <Link to="/login" className="signup__option__action">
           Sign in
         </Link>
       </div>
