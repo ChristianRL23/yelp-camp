@@ -5,6 +5,7 @@ import CampgroundActions from './layouts/CamproundActions/CampgroundActions';
 import HomePage from './layouts/HomePage/HomePage';
 import IndividualCamp from './layouts/IndividualCamp/IndividualCamp';
 import LandingPage from './layouts/LandingPage/LandingPage';
+import RequireAuth from './RequireAuth';
 
 function App() {
   return (
@@ -13,10 +14,21 @@ function App() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/login" element={<Account />} />
       <Route path="/sign-up" element={<Account />} />
-      <Route path="/new-campground" element={<CampgroundActions />} />
+      <Route
+        path="/new-campground"
+        element={
+          <RequireAuth>
+            <CampgroundActions />
+          </RequireAuth>
+        }
+      />
       <Route
         path="/campground/:campgroundName/new-comment"
-        element={<CampgroundActions />}
+        element={
+          <RequireAuth>
+            <CampgroundActions />
+          </RequireAuth>
+        }
       />
       <Route path="/campground/:campgroundName" element={<IndividualCamp />} />
     </Routes>
