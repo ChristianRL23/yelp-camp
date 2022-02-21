@@ -14,6 +14,7 @@ import { changeInputHandler } from '../../utils/changeInputFunctions';
 
 const Login = () => {
   const [formError, setFormError] = useState(null);
+  const [formSubmited, setFormSubmited] = useState(null);
   const stateDispatch = useDispatch();
   const allUsers = useSelector((state) => state.users);
   const [usernameInputState, usernameInputDispatch] = useReducer(
@@ -25,22 +26,53 @@ const Login = () => {
     passwordInitialState
   );
 
+  const { valid: passwordInputValid } = passwordInputState;
+  const { valid: usernameInputValid } = usernameInputState;
+
   const login = (e) => {
     e.preventDefault();
-    const user = allUsers.find(
-      (user) => user.username === usernameInputState.value
-    );
+    setFormSubmited(true);
 
-    if (user) {
-      if (user.password === passwordInputState.value) {
-        alert('ALL GOOD');
+    if (usernameInputState.value === '') {
+      usernameInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The field cannot be empty.',
+      });
+    } else {
+      usernameInputDispatch({ type: 'VALIDATE' });
+    }
+
+    if (passwordInputState.value === '') {
+      passwordInputDispatch({
+        type: 'ERROR',
+        errorMsg: 'The field cannot be empty.',
+      });
+    } else {
+      passwordInputDispatch({ type: 'VALIDATE' });
+    }
+  };
+
+  useEffect(() => {
+    setFormSubmited(null);
+    if (passwordInputValid && usernameInputValid) {
+      const user = allUsers.find(
+        (user) => user.username === usernameInputState.value
+      );
+
+      if (user) {
+        console.log(user);
+        if (user.password === passwordInputState.value) {
+          alert('ALL GOOD');
+        } else {
+          setFormError(true);
+        }
       } else {
         setFormError(true);
       }
-    } else {
-      setFormError(true);
     }
-  };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [passwordInputValid, usernameInputValid, formSubmited]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -53,6 +85,7 @@ const Login = () => {
     <>
       <form className="login">
         <Input
+          error={usernameInputState.errorMsg}
           value={usernameInputState.value}
           onChangeFn={(e) => changeInputHandler(e, usernameInputDispatch)}
           type="text"
@@ -60,6 +93,7 @@ const Login = () => {
           placeholder="johndoe_91"
         />
         <Input
+          error={passwordInputState.errorMsg}
           value={passwordInputState.value}
           onChangeFn={(e) => changeInputHandler(e, passwordInputDispatch)}
           label="Password"
