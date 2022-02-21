@@ -1,147 +1,14 @@
-import Input from '../../components/Input/Input';
+import Signup from './Signup';
 import './Account.scss';
-import { useEffect, useReducer } from 'react';
-import {
-  fullNameInputReducer,
-  fullNameInitialState,
-  usernameInputReducer,
-  usernameInitialState,
-  passwordInputReducer,
-  passwordInitialState,
-} from './inputsReducers';
+import { useEffect } from 'react';
 import quoteAuthor from './User.svg';
 import logo from './Logo.svg';
-import Button from './../../components/Button/Button';
 import { Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { usersActions } from './../../store/users';
-import { userLoggedActions } from '../../store/userLogged';
 
 const Account = () => {
-  const [fullNameInputState, fullNameInputDispatch] = useReducer(
-    fullNameInputReducer,
-    fullNameInitialState
-  );
-
-  const [usernameInputState, usernameInputDispatch] = useReducer(
-    usernameInputReducer,
-    usernameInitialState
-  );
-
-  const [passwordInputState, passwordInputDispatch] = useReducer(
-    passwordInputReducer,
-    passwordInitialState
-  );
-
-  const { valid: fullNameInputValid } = fullNameInputState;
-  const { valid: passwordInputValid } = passwordInputState;
-  const { valid: usernameInputValid } = usernameInputState;
-
-  const changeFullNameInputHandler = (e) => {
-    fullNameInputDispatch({ type: 'CHANGE', value: e.target.value });
-  };
-
-  const changePasswordInputHandler = (e) => {
-    passwordInputDispatch({ type: 'CHANGE', value: e.target.value });
-  };
-
-  const changeUsernameInputHandler = (e) => {
-    usernameInputDispatch({ type: 'CHANGE', value: e.target.value });
-  };
-
-  const stateDispatch = useDispatch();
-
-  const allUsers = useSelector((state) => state.users);
   const currentPath = useLocation().pathname;
 
   useEffect(() => {}, [currentPath]);
-
-  useEffect(() => {
-    if (fullNameInputValid && passwordInputValid && usernameInputValid) {
-      stateDispatch(
-        usersActions.createNewUser({
-          username: usernameInputState.value,
-          password: passwordInputState.value,
-          fullName: fullNameInputState.value,
-        })
-      );
-      fullNameInputDispatch({ type: 'CLEAN' });
-      passwordInputDispatch({ type: 'CLEAN' });
-      usernameInputDispatch({ type: 'CLEAN' });
-
-      stateDispatch(
-        userLoggedActions.login({
-          username: usernameInputState.value,
-          fullName: fullNameInputState.value,
-        })
-      );
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fullNameInputValid, passwordInputValid, usernameInputValid]);
-
-  const accountAction = (e) => {
-    e.preventDefault();
-    const inputName = fullNameInputState.value.split(' ');
-
-    if (fullNameInputState.value === '') {
-      fullNameInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The field cannot be empty.',
-      });
-    } else if (inputName[1] === undefined || inputName[1] === '') {
-      fullNameInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The full name must be made up of first and last name.',
-      });
-    } else {
-      fullNameInputDispatch({ type: 'VALIDATE' });
-    }
-
-    if (passwordInputState.value === '') {
-      passwordInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The field cannot be empty.',
-      });
-    } else if (passwordInputState.value.length < 6) {
-      passwordInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The password must be at least 6 characters.',
-      });
-    } else {
-      passwordInputDispatch({ type: 'VALIDATE' });
-    }
-
-    if (usernameInputState.value === '') {
-      usernameInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The field cannot be empty.',
-      });
-    } else if (usernameInputState.value.length < 8) {
-      usernameInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The username must be at least 8 characters.',
-      });
-    } else if (
-      allUsers.find((user) => user.username === usernameInputState.value)
-    ) {
-      usernameInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The username already exist.',
-      });
-    } else {
-      usernameInputDispatch({ type: 'VALIDATE' });
-    }
-
-    /* if (currentPath === '/login') {
-      alert('LOGIN');
-    } else {
-      stateDispatch(
-        usersActions.createNewUser({
-          username: usernameInputValue,
-          password: passwordInputValue,
-        })
-      ); */
-  };
 
   return (
     <section className="account">
@@ -156,55 +23,7 @@ const Account = () => {
           <h3 className="account__left__content__title">
             Start exploring camps from all around the world.
           </h3>
-          <form className="account__left__content__form">
-            <Input
-              error={fullNameInputState.errorMsg}
-              value={fullNameInputState.value}
-              onChangeFn={changeFullNameInputHandler}
-              type="text"
-              label="Full Name"
-              placeholder="Bill Prescott"
-            />
-            <Input
-              error={usernameInputState.errorMsg}
-              value={usernameInputState.value}
-              onChangeFn={changeUsernameInputHandler}
-              type="text"
-              label="Username"
-              placeholder="johndoe_91"
-            />
-            <Input
-              error={passwordInputState.errorMsg}
-              value={passwordInputState.value}
-              onChangeFn={changePasswordInputHandler}
-              label="Password"
-              type="password"
-              placeholder={
-                currentPath === '/login'
-                  ? 'Enter Your Password'
-                  : 'Choose a Password'
-              }
-            />
-            <Button
-              style={{ width: '100%' }}
-              theme="black"
-              clickFn={accountAction}
-              textContent={
-                currentPath === '/login' ? 'Login' : 'Create an Account'
-              }
-            />
-          </form>
-          <div className="account__left__content__option">
-            <p className="account__left__content__option__question">
-              {currentPath === '/login' ? 'Not a user yet?' : 'Already a user?'}
-            </p>
-            <Link
-              to={currentPath === '/login' ? '/sign-up' : '/login'}
-              className="account__left__content__option__action"
-            >
-              {currentPath === '/login' ? 'Create an Account' : 'Sign in'}
-            </Link>
-          </div>
+          <Signup />
         </div>
       </div>
       <div className="account__right">
