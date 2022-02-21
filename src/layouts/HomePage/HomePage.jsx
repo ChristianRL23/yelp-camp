@@ -2,7 +2,7 @@ import Button from '../../components/Button/Button';
 import CampCard from '../../components/CampCard/CampCard';
 import './HomePage.scss';
 import searchIcon from './Search-Icon.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -47,12 +47,12 @@ const HomePage = () => {
             </div>
             <Button textContent="Search" theme="black" />
           </form>
-          <a
+          <Link
+            to="/new-campground"
             className="home-page__welcome__content__add-campground-link"
-            href="#"
           >
             Or add your own campground
-          </a>
+          </Link>
         </div>
       </article>
       <main className="home-page__campgrounds">
