@@ -62,6 +62,7 @@ $elements-spacing: 2rem;
         flex-direction: column;
         &__comments {
           margin-bottom: $elements-spacing;
+          overflow-y: scroll;
         }
       }
     }

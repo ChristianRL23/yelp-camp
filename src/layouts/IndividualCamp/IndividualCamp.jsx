@@ -26,6 +26,7 @@ const IndividualCamp = () => {
       (campground) => campground.name === campgroundName
     );
     setCampground(currentCampground);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addComment = () => {
@@ -62,6 +63,7 @@ const IndividualCamp = () => {
               <div className="individual-camp__container__campground__reviews__comments">
                 {campground.comments.map((comment) => (
                   <CampComment
+                    key={'id' + Math.random().toString(16).slice(2)}
                     author={comment.author}
                     content={comment.content}
                   />
