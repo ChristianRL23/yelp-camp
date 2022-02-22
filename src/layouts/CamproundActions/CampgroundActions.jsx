@@ -3,7 +3,7 @@ import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useReducer, useState } from 'react';
 import {
   commentInitialState,
@@ -20,6 +20,7 @@ const CampgroundActions = () => {
   const stateDispatch = useDispatch();
   const currentLoggedUser = useSelector((state) => state.userLogged.fullName);
   const currentPath = useLocation().pathname;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (currentPath === '/new-campground') {
@@ -81,6 +82,7 @@ const CampgroundActions = () => {
           campgroundName: campground,
         })
       );
+      navigate(-1);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [commentInputValid]);
