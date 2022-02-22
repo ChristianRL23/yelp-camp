@@ -9,6 +9,7 @@ const Input = (props) => {
       </div>
       {props.type === 'textarea' ? (
         <textarea
+          onChange={props.onChangeFn}
           placeholder={props.placeholder}
           className="input__textarea"
         ></textarea>

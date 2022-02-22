@@ -84,3 +84,32 @@ export const passwordInitialState = {
   errorMsg: '',
   valid: false,
 };
+
+export const commentInputReducer = (state, action) => {
+  switch (action.type) {
+    case 'CHANGE':
+      return {
+        value: action.value,
+        errorMsg: state.errorMsg,
+        valid: state.valid,
+      };
+    case 'ERROR':
+      return {
+        value: state.value,
+        errorMsg: action.errorMsg,
+        valid: false,
+      };
+    case 'VALIDATE':
+      return { value: state.value, errorMsg: '', valid: true };
+    case 'CLEAN':
+      return { value: '', errorMsg: '', valid: false };
+    default:
+      return { value: '', errorMsg: '', valid: false };
+  }
+};
+
+export const commentInitialState = {
+  value: '',
+  errorMsg: '',
+  valid: false,
+};
