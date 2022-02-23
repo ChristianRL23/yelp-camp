@@ -3,12 +3,13 @@ import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 import campMap from './Map.png';
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CampComment from './../../components/CampComment/CampComment';
 import Button from '../../components/Button/Button';
 
 const IndividualCamp = () => {
+  const location = useLocation();
   const [campground, setCampground] = useState(null);
   const params = useParams();
   const navigate = useNavigate();

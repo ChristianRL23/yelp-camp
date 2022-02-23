@@ -2,92 +2,20 @@ import './CampgroundActions.scss';
 import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
 import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useReducer, useState } from 'react';
-import {
-  commentInitialState,
-  commentInputReducer,
-} from '../../utils/inputsReducers';
-import { changeInputHandler } from '../../utils/changeInputFunctions';
-import { useDispatch } from 'react-redux';
-import { campgroundsActions } from '../../store/campgrounds';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import NewComment from '../../components/NewComment/NewComment';
 
 const CampgroundActions = () => {
   const [campgroundAction, setCampgroundAction] = useState('');
-  const params = useParams();
-  const stateDispatch = useDispatch();
-  const currentLoggedUser = useSelector((state) => state.userLogged.fullName);
-  const currentPath = useLocation().pathname;
-  const navigate = useNavigate();
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (currentPath === '/new-campground') {
       setCampgroundAction('NEW-CAMPGROUND');
     } else {
       setCampgroundAction('NEW-COMMENT');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  //NEW COMMENT
-
-  const [commentInputState, commentInputDispatch] = useReducer(
-    commentInputReducer,
-    commentInitialState
-  );
-
-  const { valid: commentInputValid } = commentInputState;
-
-  const addComment = (e) => {
-    e.preventDefault();
-    if (commentInputState.value.trim() === '') {
-      commentInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'The field cannot be empty.',
-      });
-    } else if (commentInputState.value.length > 100) {
-      commentInputDispatch({
-        type: 'ERROR',
-        errorMsg: 'Only a maximum of 100 characters is allowed.',
-      });
-    } else {
-      commentInputDispatch({ type: 'VALIDATE' });
-    }
-  };
-
-  const newCommentContent = (
-    <Input
-      error={commentInputState.errorMsg}
-      value={commentInputState}
-      onChangeFn={(e) => changeInputHandler(e, commentInputDispatch)}
-      label="Description"
-      type="textarea"
-      placeholder="This was probably the best camp i've visited this past year, definitely recommend visiting any time soon."
-    />
-  );
-
-  useEffect(() => {
-    if (commentInputValid) {
-      let campground = params.campgroundName.split('-');
-      campground = campground.map(
-        (word) => word.charAt(0).toUpperCase() + word.slice(1)
-      );
-      campground = campground.join(' ');
-      stateDispatch(
-        campgroundsActions.addComment({
-          author: currentLoggedUser,
-          content: commentInputState.value,
-          campgroundName: campground,
-        })
-      );
-      navigate(-1);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [commentInputValid]);
-
-  //NEW COMMENT
+  }, []); */
 
   const newCampgroundContent = (
     <>
@@ -118,15 +46,22 @@ const CampgroundActions = () => {
       }
     >
       <Header />
-      <form onSubmit={addComment} className="campground-actions__form">
+      <form className="campground-actions__form">
         <h2 className="campground-actions__form__title">
           Add New{' '}
           {campgroundAction === 'NEW-CAMPGROUND' ? 'Campground' : 'Comment'}
         </h2>
-        <div className="campground-actions__form__inputs">
-          {campgroundAction === 'NEW-CAMPGROUND'
-            ? newCampgroundContent
-            : newCommentContent}
+        <NewComment />
+        {/* <div className="campground-actions__form__inputs">
+          {campgroundAction === 'NEW-CAMPGROUND' ? (
+            newCampgroundContent
+          ) : (
+            <NewComment
+              error={commentInputState.errorMsg}
+              value={commentInputState}
+              onChangeFn={(e) => changeInputHandler(e, commentInputDispatch)}
+            />
+          )}
         </div>
         <Button
           style={{ width: '100%' }}
@@ -136,7 +71,7 @@ const CampgroundActions = () => {
               : 'Post Comment'
           }
           theme="black"
-        />
+        /> */}
       </form>
       {campgroundAction === 'NEW-CAMPGROUND' ? (
         <Footer />
