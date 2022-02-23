@@ -13,14 +13,14 @@ import {
 } from './../../utils/inputsReducers';
 import { usersActions } from './../../store/users';
 import { userLoggedActions } from '../../store/userLogged';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { verifySignupInputs } from './verifySignupInputs';
 import { changeInputHandler } from '../../utils/changeInputFunctions';
 
 const Signup = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const pathFrom = location.state;
-  console.log(pathFrom);
   const stateDispatch = useDispatch();
   const allUsers = useSelector((state) => state.users);
 
@@ -62,6 +62,7 @@ const Signup = () => {
           fullName: fullNameInputState.value,
         })
       );
+      navigate(pathFrom);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fullNameInputValid, passwordInputValid, usernameInputValid]);

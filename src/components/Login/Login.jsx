@@ -1,7 +1,7 @@
 import './Login.scss';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useReducer, useState, useEffect } from 'react';
 import {
@@ -14,9 +14,9 @@ import { changeInputHandler } from '../../utils/changeInputFunctions';
 import { userLoggedActions } from '../../store/userLogged';
 
 const Login = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { pathname: pathFrom } = location.state;
-  console.log(pathFrom);
   const [formError, setFormError] = useState(null);
   const [formSubmited, setFormSubmited] = useState(null);
   const stateDispatch = useDispatch();
@@ -72,6 +72,7 @@ const Login = () => {
               username: user.username,
             })
           );
+          navigate(pathFrom);
         } else {
           setFormError(true);
         }
