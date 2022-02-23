@@ -1,11 +1,12 @@
 import './Header.scss';
 import Button from './../Button/Button';
 import logo from './Logo.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoggedActions } from '../../store/userLogged';
 
 const Header = () => {
+  const location = useLocation();
   const stateDispatch = useDispatch();
   const logoutUser = () => {
     stateDispatch(userLoggedActions.logout());
@@ -13,10 +14,11 @@ const Header = () => {
   const userLogged = useSelector((state) => state.userLogged);
 
   const navigate = useNavigate();
-  const renderSignUpLayout = () => navigate('/sign-up');
+  const renderSignUpLayout = () =>
+    navigate('/sign-up', { state: location.pathname });
   const userNoLoggedContent = (
     <>
-      <Link className="header__right__action" to="/login">
+      <Link state={location} className="header__right__action" to="/login">
         Login
       </Link>
       <Button
