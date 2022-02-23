@@ -13,11 +13,14 @@ import {
 } from './../../utils/inputsReducers';
 import { usersActions } from './../../store/users';
 import { userLoggedActions } from '../../store/userLogged';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { verifySignupInputs } from './verifySignupInputs';
 import { changeInputHandler } from '../../utils/changeInputFunctions';
 
 const Signup = () => {
+  const location = useLocation();
+  const pathFrom = location.state;
+  console.log(pathFrom);
   const stateDispatch = useDispatch();
   const allUsers = useSelector((state) => state.users);
 
@@ -114,7 +117,11 @@ const Signup = () => {
       </form>
       <div className="signup__option">
         <p className="signup__option__question">Already a user?</p>
-        <Link to="/login" className="signup__option__action">
+        <Link
+          state={{ pathname: pathFrom }}
+          to="/login"
+          className="signup__option__action"
+        >
           Sign in
         </Link>
       </div>

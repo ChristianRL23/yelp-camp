@@ -1,7 +1,7 @@
 import './Login.scss';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useReducer, useState, useEffect } from 'react';
 import {
@@ -14,6 +14,9 @@ import { changeInputHandler } from '../../utils/changeInputFunctions';
 import { userLoggedActions } from '../../store/userLogged';
 
 const Login = () => {
+  const location = useLocation();
+  const { pathname: pathFrom } = location.state;
+  console.log(pathFrom);
   const [formError, setFormError] = useState(null);
   const [formSubmited, setFormSubmited] = useState(null);
   const stateDispatch = useDispatch();
@@ -120,7 +123,7 @@ const Login = () => {
       </form>
       <div className="login__option">
         <p className="login__option__question">Not a user yet?</p>
-        <Link to="/sign-up" className="login__option__action">
+        <Link state={pathFrom} to="/sign-up" className="login__option__action">
           Create an account
         </Link>
       </div>
