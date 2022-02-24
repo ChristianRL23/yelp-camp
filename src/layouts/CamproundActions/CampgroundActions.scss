@@ -6,7 +6,6 @@
   &--comment {
     @extend .campground-actions;
     height: 100vh;
-    position: relative;
   }
 
   &__form {
@@ -16,13 +15,6 @@
     &__title {
       font-size: 3rem;
       margin-bottom: 3rem;
-    }
-
-    &__inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-bottom: 2rem;
     }
   }
 }

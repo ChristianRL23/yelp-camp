@@ -1,5 +1,5 @@
 @use './../../shared' as s;
 
-.new-comment {
+.new-campground {
   @include s.campgroundActionsFormStyles;
 }
