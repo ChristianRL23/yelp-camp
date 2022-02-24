@@ -43,9 +43,21 @@
   }
 }
 
-@mixin campgroundActionsFormStyles {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2rem;
+@mixin campgroundActionsFormStyles($classname) {
+  .#{$classname} {
+    width: 45%;
+    margin: 0 auto;
+
+    &__title {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
 }

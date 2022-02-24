@@ -63,8 +63,9 @@ const NewComment = () => {
   }, [commentInputValid]);
 
   return (
-    <>
-      <div className="new-comment">
+    <form className="new-comment">
+      <h2 className="new-comment__title">Add New Comment</h2>
+      <div className="new-comment__inputs">
         <Input
           error={commentInputState.errorMsg}
           value={commentInputState.value}
@@ -80,7 +81,7 @@ const NewComment = () => {
         textContent="Post Comment"
         theme="black"
       />
-    </>
+    </form>
   );
 };
 

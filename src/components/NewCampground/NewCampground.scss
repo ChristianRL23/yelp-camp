@@ -1,5 +1,3 @@
 @use './../../shared' as s;
 
-.new-campground {
-  @include s.campgroundActionsFormStyles;
-}
+@include s.campgroundActionsFormStyles('new-campground');

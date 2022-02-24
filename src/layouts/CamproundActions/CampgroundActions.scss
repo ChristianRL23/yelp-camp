@@ -7,14 +7,4 @@
     @extend .campground-actions;
     height: 100vh;
   }
-
-  &__form {
-    width: 45%;
-    margin: 0 auto;
-
-    &__title {
-      font-size: 3rem;
-      margin-bottom: 3rem;
-    }
-  }
 }

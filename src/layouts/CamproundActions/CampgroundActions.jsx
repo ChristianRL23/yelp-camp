@@ -28,17 +28,12 @@ const CampgroundActions = () => {
       }
     >
       <Header />
-      <form className="campground-actions__form">
-        <h2 className="campground-actions__form__title">
-          Add New{' '}
-          {campgroundAction === 'NEW-CAMPGROUND' ? 'Campground' : 'Comment'}
-        </h2>
-        {campgroundAction === 'NEW-CAMPGROUND' ? (
-          <NewCampground />
-        ) : (
-          <NewComment />
-        )}
-      </form>
+      {campgroundAction === 'NEW-CAMPGROUND' ? (
+        <NewCampground />
+      ) : (
+        <NewComment />
+      )}
+
       {campgroundAction === 'NEW-CAMPGROUND' ? (
         <Footer />
       ) : (
