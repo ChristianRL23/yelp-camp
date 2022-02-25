@@ -30,10 +30,7 @@ function App() {
           </RequireAuth>
         }
       />
-      <Route
-        path="/campground/:campgroundName/:id"
-        element={<IndividualCamp />}
-      />
+      <Route path="/campground/:campgroundName" element={<IndividualCamp />} />
     </Routes>
   );
 }

@@ -8,7 +8,8 @@ export const verifyNewCampInputs = (
   campgroundShortDescriptionInputState,
   campgroundShortDescriptionInputDispatch,
   campgroundLongDescriptionInputState,
-  campgroundLongDescriptionInputDispatch
+  campgroundLongDescriptionInputDispatch,
+  allCampgrounds
 ) => {
   const urlExpression =
     /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
@@ -19,6 +20,15 @@ export const verifyNewCampInputs = (
     campgroundNameInputDispatch({
       type: 'ERROR',
       errorMsg: 'The field cannot be empty.',
+    });
+  } else if (
+    allCampgrounds.find(
+      (camp) => camp.name === campgroundNameInputState.value.trim()
+    )
+  ) {
+    campgroundNameInputDispatch({
+      type: 'ERROR',
+      errorMsg: 'The campground already exist.',
     });
   } else if (campgroundNameInputState.value.length > 25) {
     campgroundNameInputDispatch({

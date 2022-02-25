@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const NewCampground = () => {
+  const allCampgrounds = useSelector((state) => state.campgrounds);
   const currentUser = useSelector((state) => state.userLogged.fullName);
   const navigate = useNavigate();
   const dispatchState = useDispatch();
@@ -55,7 +56,8 @@ const NewCampground = () => {
       campgroundShortDescriptionInputState,
       campgroundShortDescriptionInputDispatch,
       campgroundLongDescriptionInputState,
-      campgroundLongDescriptionInputDispatch
+      campgroundLongDescriptionInputDispatch,
+      allCampgrounds
     );
   };
 
@@ -83,7 +85,7 @@ const NewCampground = () => {
       let newCampPath = campgroundNameInputState.value.toLowerCase();
       newCampPath = newCampPath.split(' ');
       newCampPath = newCampPath.join('-');
-      navigate(`/campground/${newCampPath}/${campgroundId}`, { replace: true });
+      navigate(`/campground/${newCampPath}`, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [

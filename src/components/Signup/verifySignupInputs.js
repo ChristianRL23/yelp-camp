@@ -47,7 +47,7 @@ export const verifySignupInputs = (
       errorMsg: 'The username must be at least 8 characters.',
     });
   } else if (
-    allUsers.find((user) => user.username === usernameInputState.value)
+    allUsers.find((user) => user.username === usernameInputState.value.trim())
   ) {
     usernameInputDispatch({
       type: 'ERROR',
