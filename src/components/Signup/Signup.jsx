@@ -20,7 +20,7 @@ import { changeInputHandler } from '../../utils/changeInputFunctions';
 const Signup = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const pathFrom = location.state;
+  const pathFrom = location.state || '/home';
   const stateDispatch = useDispatch();
   const allUsers = useSelector((state) => state.users);
 
@@ -62,7 +62,7 @@ const Signup = () => {
           fullName: fullNameInputState.value,
         })
       );
-      navigate(pathFrom);
+      navigate(pathFrom, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fullNameInputValid, passwordInputValid, usernameInputValid]);

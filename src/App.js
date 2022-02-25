@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
+import AvoidNewLog from './AvoidNewLog';
 import Account from './layouts/Account/Account';
 import CampgroundActions from './layouts/CamproundActions/CampgroundActions';
 import HomePage from './layouts/HomePage/HomePage';
@@ -12,8 +13,22 @@ function App() {
     <Routes>
       <Route path="/welcome" element={<LandingPage />} />
       <Route path="/home" element={<HomePage />} />
-      <Route path="/login" element={<Account />} />
-      <Route path="/sign-up" element={<Account />} />
+      <Route
+        path="/login"
+        element={
+          <AvoidNewLog>
+            <Account />
+          </AvoidNewLog>
+        }
+      />
+      <Route
+        path="/sign-up"
+        element={
+          <AvoidNewLog>
+            <Account />
+          </AvoidNewLog>
+        }
+      />
       <Route
         path="/new-campground"
         element={

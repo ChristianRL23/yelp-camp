@@ -16,7 +16,7 @@ import { userLoggedActions } from '../../store/userLogged';
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { pathname: pathFrom } = location.state;
+  const { pathname: pathFrom } = location.state || '/home';
   const [formError, setFormError] = useState(null);
   const [formSubmited, setFormSubmited] = useState(null);
   const stateDispatch = useDispatch();
@@ -72,7 +72,7 @@ const Login = () => {
               username: user.username,
             })
           );
-          navigate(pathFrom);
+          navigate(pathFrom, { replace: true });
         } else {
           setFormError(true);
         }
