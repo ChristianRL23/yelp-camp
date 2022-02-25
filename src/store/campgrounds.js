@@ -16,6 +16,9 @@ const campgroundsSlice = createSlice({
         content: payload.payload.content,
       });
     },
+    createCampground(state, payload) {
+      state.push(payload.payload);
+    },
   },
 });
 

@@ -12,8 +12,14 @@ import Button from '../Button/Button';
 import Input from '../Input/Input';
 import './NewCampground.scss';
 import { verifyNewCampInputs } from './verifyNewCampInputs';
+import { campgroundsActions } from '../../store/campgrounds';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const NewCampground = () => {
+  const currentUser = useSelector((state) => state.userLogged.fullName);
+  const navigate = useNavigate();
+  const dispatchState = useDispatch();
   const [campgroundNameInputState, campgroundNameInputDispatch] =
     useCampgroundName();
   const [campgroundPriceInputState, campgroundPriceInputDispatch] =
@@ -61,21 +67,23 @@ const NewCampground = () => {
       campgroundShortDescriptionInputValid &&
       campgroundLongDescriptionInputValid
     ) {
-      /* let campground = params.campgroundName.split('-');
-      campground = campground.map(
-        (word) => word.charAt(0).toUpperCase() + word.slice(1)
-      );
-      campground = campground.join(' ');
-      stateDispatch(
-        campgroundsActions.addComment({
-          author: currentLoggedUser,
-          content: commentInputState.value,
-          campgroundName: campground,
+      let campgroundId = 'id' + Math.random().toString(16).slice(2);
+      dispatchState(
+        campgroundsActions.createCampground({
+          name: campgroundNameInputState.value,
+          image: campgroundImageInputState.value,
+          shortDescription: campgroundShortDescriptionInputState.value,
+          longDescription: campgroundLongDescriptionInputState.value,
+          id: campgroundId,
+          createdBy: currentUser,
+          price: Number(campgroundPriceInputState.value),
+          comments: [],
         })
       );
-      const pathnameArr = location.pathname.split('/');
-      navigate(`/campground/${pathnameArr[2]}`); */
-      alert('ALL GOOD');
+      let newCampPath = campgroundNameInputState.value.toLowerCase();
+      newCampPath = newCampPath.split(' ');
+      newCampPath = newCampPath.join('-');
+      navigate(`/campground/${newCampPath}/${campgroundId}`, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [

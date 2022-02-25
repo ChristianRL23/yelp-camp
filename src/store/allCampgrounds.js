@@ -13,7 +13,7 @@ const allCampgrounds = [
       'One of the most famous hikes in Benguet is Mt Ulap in Igoton.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
-    id: '01',
+    id: 'id' + Math.random().toString(16).slice(2),
     createdBy: 'Andrew Mike',
     price: 89.99,
     comments: [
@@ -41,7 +41,7 @@ const allCampgrounds = [
       'A paradise of islands that can rival the white sand beauty of Boracay.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
-    id: '02',
+    id: 'id' + Math.random().toString(16).slice(2),
     createdBy: 'Andrew Mike',
     price: 119.99,
     comments: [
@@ -69,7 +69,7 @@ const allCampgrounds = [
       'This is one of the best beach camping sites, beautiful and pristine.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
-    id: '03',
+    id: 'id' + Math.random().toString(16).slice(2),
     createdBy: 'Andrew Mike',
     price: 94.99,
     comments: [
@@ -97,7 +97,7 @@ const allCampgrounds = [
       'The Seven Sisters is the 39th tallest waterfall in Norway.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
-    id: '04',
+    id: 'id' + Math.random().toString(16).slice(2),
     createdBy: 'Andrew Mike',
     price: 119.99,
     comments: [
@@ -125,7 +125,7 @@ const allCampgrounds = [
       'Philippines is one of the most dazzling countries in all of Asia.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
-    id: '05',
+    id: 'id' + Math.random().toString(16).slice(2),
     createdBy: 'Andrew Mike',
     price: 99.99,
     comments: [
@@ -152,7 +152,7 @@ const allCampgrounds = [
     shortDescription: 'A quiet place where mountains and lakes abound.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
-    id: '06',
+    id: 'id' + Math.random().toString(16).slice(2),
     createdBy: 'Andrew Mike',
     price: 104.99,
     comments: [
