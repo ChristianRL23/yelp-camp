@@ -9,7 +9,6 @@ import CampComment from './../../components/CampComment/CampComment';
 import Button from '../../components/Button/Button';
 
 const IndividualCamp = () => {
-  const location = useLocation();
   const [campground, setCampground] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
@@ -60,16 +59,27 @@ const IndividualCamp = () => {
                 Submited by: {campground.createdBy}
               </p>
             </div>
-            <div className="individual-camp__container__campground__reviews">
-              <div className="individual-camp__container__campground__reviews__comments">
-                {campground.comments.map((comment) => (
-                  <CampComment
-                    key={'id' + Math.random().toString(16).slice(2)}
-                    author={comment.author}
-                    content={comment.content}
-                  />
-                ))}
-              </div>
+            <div
+              className={
+                campground.comments.length === 0
+                  ? 'individual-camp__container__campground__reviews--no-comments'
+                  : 'individual-camp__container__campground__reviews'
+              }
+            >
+              {campground.comments.length === 0 ? (
+                <p>This campground has no reviews.</p>
+              ) : (
+                <div className="individual-camp__container__campground__reviews__comments">
+                  {campground.comments.map((comment) => (
+                    <CampComment
+                      key={'id' + Math.random().toString(16).slice(2)}
+                      author={comment.author}
+                      content={comment.content}
+                    />
+                  ))}
+                </div>
+              )}
+
               <Button
                 clickFn={addComment}
                 style={{ alignSelf: 'flex-end' }}

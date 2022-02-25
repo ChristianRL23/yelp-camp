@@ -44,10 +44,10 @@ export const verifyNewCampInputs = (
       type: 'ERROR',
       errorMsg: 'The field cannot be empty.',
     });
-  } else if (campgroundPriceInputState.value.length > 5) {
+  } else if (campgroundPriceInputState.value.length > 6) {
     campgroundPriceInputDispatch({
       type: 'ERROR',
-      errorMsg: 'Must be a maximum of 5 digits.',
+      errorMsg: 'Must be a maximum of 6 digits.',
     });
   } else if (campgroundPriceInputState.value <= 0) {
     campgroundPriceInputDispatch({

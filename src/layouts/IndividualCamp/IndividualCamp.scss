@@ -60,6 +60,19 @@ $elements-spacing: 2rem;
         @include s.elementBorder;
         display: flex;
         flex-direction: column;
+        &--no-comments {
+          @extend .individual-camp__container__campground__reviews;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 0;
+          padding: $container-padding;
+
+          p {
+            @include s.paragraph(1.7);
+          }
+        }
+
         &__comments {
           margin-bottom: $elements-spacing;
           padding-right: 1rem;
