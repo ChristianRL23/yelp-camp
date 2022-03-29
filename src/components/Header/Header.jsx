@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoggedActions } from '../../store/userLogged';
 
-const Header = () => {
+const Header = ({ loggedStateHidden }) => {
   const location = useLocation();
   const stateDispatch = useDispatch();
   const logoutUser = () => {
@@ -45,9 +45,11 @@ const Header = () => {
           Home
         </Link>
       </div>
-      <div className="header__right">
-        {!userLogged.logged ? userNoLoggedContent : userLoggedContent}
-      </div>
+      {!loggedStateHidden && (
+        <div className="header__right">
+          {!userLogged.logged ? userNoLoggedContent : userLoggedContent}
+        </div>
+      )}
     </header>
   );
 };

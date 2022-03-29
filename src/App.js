@@ -9,6 +9,7 @@ import CampgroundActions from './layouts/CamproundActions/CampgroundActions';
 import HomePage from './layouts/HomePage/HomePage';
 import IndividualCamp from './layouts/IndividualCamp/IndividualCamp';
 import LandingPage from './layouts/LandingPage/LandingPage';
+import NotFound from './layouts/NotFound/NotFound';
 import RequireAuth from './RequireAuth';
 import { campgroundsActions } from './store/campgrounds';
 import { userLoggedActions } from './store/userLogged';
@@ -93,6 +94,7 @@ function App() {
         }
       />
       <Route path="/campground/:campgroundName" element={<IndividualCamp />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

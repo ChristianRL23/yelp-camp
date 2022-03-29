@@ -1,0 +1,35 @@
+@use './../../shared' as s;
+
+.not-found {
+  @include s.layoutPadding;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    margin-top: -3rem;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__texts {
+      h2 {
+        font-size: 15rem;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 8rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        @include s.paragraph(3);
+      }
+    }
+  }
+}
