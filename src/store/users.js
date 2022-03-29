@@ -9,6 +9,10 @@ const usersSlice = createSlice({
     createNewUser(state, payload) {
       state.push(payload.payload);
     },
+    saveUsers(state, payload) {
+      state.length = 0;
+      payload.payload.forEach((user) => state.push(user));
+    },
   },
 });
 

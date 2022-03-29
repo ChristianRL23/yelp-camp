@@ -19,6 +19,10 @@ const campgroundsSlice = createSlice({
     createCampground(state, payload) {
       state.push(payload.payload);
     },
+    saveCampgrounds(state, payload) {
+      state.length = 0;
+      payload.payload.forEach((campground) => state.push(campground));
+    },
   },
 });
 
