@@ -32,25 +32,13 @@ $elements-spacing: 1.3rem;
           display: flex;
           background-color: #fff;
           gap: $elements-spacing;
-          padding: 1.5rem;
+          padding: 0.1rem 1.5rem;
           flex: 1;
           border: 1px solid var(--color-primary-gray);
           border-radius: var(--border-radius-element);
 
           &__icon {
             width: 1.6rem;
-          }
-
-          &__input {
-            align-self: stretch;
-            width: 100%;
-            border: none;
-            @include s.paragraph(1.6);
-            font-family: inherit;
-
-            &:focus {
-              outline: none;
-            }
           }
         }
       }
@@ -69,4 +57,16 @@ $elements-spacing: 1.3rem;
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
   }
+}
+
+.sc-eCYdqJ,
+.bdHMCv {
+  width: 100%;
+}
+
+.sc-hKMtZM input,
+.hCOnUy input {
+  font-family: 'Archivo', sans-serif;
+  @include s.paragraph(1.6);
+  transform: translateY(1px);
 }

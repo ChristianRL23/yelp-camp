@@ -1,4 +1,4 @@
-import Button from '../../components/Button/Button';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import CampCard from '../../components/CampCard/CampCard';
 import './HomePage.scss';
 import searchIcon from './Search-Icon.svg';
@@ -14,6 +14,32 @@ const HomePage = () => {
   const selectCampground = (e) => {
     const campgroundName = e.target.parentElement.children[1].textContent;
     const campgroundNameUrlParameter = campgroundName
+      .toLowerCase()
+      .split(' ')
+      .join('-');
+    navigate(`/campground/${campgroundNameUrlParameter}`);
+  };
+
+  const searchBarItems = campgrounds.map((campground, index) => {
+    return {
+      name: campground.name,
+      id: index,
+    };
+  });
+  console.log(searchBarItems);
+
+  const searchBarStyles = {
+    letterSpacing: '0.3px',
+    boxShadow: 'none',
+    border: 'none',
+    borderRadius: '0',
+    fontFamily: 'Archivo',
+    color: '#595959',
+    clearIconMargin: '4px 14px 0 0',
+  };
+
+  const selectResult = (result) => {
+    const campgroundNameUrlParameter = result.name
       .toLowerCase()
       .split(' ')
       .join('-');
@@ -39,13 +65,14 @@ const HomePage = () => {
                 src={searchIcon}
                 alt="Magnifying glass"
               />
-              <input
+              <ReactSearchAutocomplete
+                onSelect={selectResult}
+                styling={searchBarStyles}
+                items={searchBarItems}
+                showIcon={false}
                 placeholder="Search for camps"
-                className="home-page__welcome__content__form__input-container__input"
-                type="text"
               />
             </div>
-            <Button textContent="Search" theme="black" />
           </form>
           <Link
             to="/new-campground"
