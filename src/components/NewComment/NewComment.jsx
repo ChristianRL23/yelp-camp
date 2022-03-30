@@ -1,3 +1,4 @@
+import moment from 'moment';
 import './NewComment.scss';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
@@ -51,6 +52,7 @@ const NewComment = () => {
       campground = campground.join(' ');
       stateDispatch(
         campgroundsActions.addComment({
+          date: moment().valueOf(),
           author: currentLoggedUser,
           content: commentInputState.value,
           campgroundName: campground,

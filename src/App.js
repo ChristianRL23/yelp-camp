@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import AvoidNewLog from './AvoidNewLog';
-import EntryPage from './EntryPage';
+
 import Account from './layouts/Account/Account';
 import CampgroundActions from './layouts/CamproundActions/CampgroundActions';
 import HomePage from './layouts/HomePage/HomePage';
@@ -58,8 +58,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<EntryPage />} />
-      <Route path="/welcome" element={<LandingPage />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route
         path="/login"

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import allCampgrounds from './allCampgrounds';
 
 const campgroundsInitalState = allCampgrounds;
@@ -13,6 +14,7 @@ const campgroundsSlice = createSlice({
       );
       state[campgroundIndex].comments.push({
         author: payload.payload.author,
+        date: payload.payload.date,
         content: payload.payload.content,
       });
     },

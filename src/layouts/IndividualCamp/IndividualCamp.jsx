@@ -80,6 +80,7 @@ const IndividualCamp = () => {
                         key={'id' + Math.random().toString(16).slice(2)}
                         author={comment.author}
                         content={comment.content}
+                        date={comment.date}
                       />
                     ))}
                   </div>

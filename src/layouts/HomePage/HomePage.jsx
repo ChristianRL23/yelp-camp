@@ -26,7 +26,6 @@ const HomePage = () => {
       id: index,
     };
   });
-  console.log(searchBarItems);
 
   const searchBarStyles = {
     letterSpacing: '0.3px',
