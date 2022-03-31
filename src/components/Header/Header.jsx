@@ -1,6 +1,5 @@
 import './Header.scss';
 import Button from './../Button/Button';
-import logo from './Logo.svg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLoggedActions } from '../../store/userLogged';
@@ -8,14 +7,16 @@ import { userLoggedActions } from '../../store/userLogged';
 const Header = ({ loggedStateHidden }) => {
   const location = useLocation();
   const stateDispatch = useDispatch();
+  const navigate = useNavigate();
+  const userLogged = useSelector((state) => state.userLogged);
+
   const logoutUser = () => {
     stateDispatch(userLoggedActions.logout());
   };
-  const userLogged = useSelector((state) => state.userLogged);
 
-  const navigate = useNavigate();
   const renderSignUpLayout = () =>
     navigate('/sign-up', { state: location.pathname });
+
   const userNoLoggedContent = (
     <>
       <Link state={location} className="header__right__action" to="/login">
@@ -40,7 +41,7 @@ const Header = ({ loggedStateHidden }) => {
   return (
     <header className="header">
       <div className="header__left">
-        <img src={logo} alt="Logo" />
+        <img src="/images/Logo.svg" alt="Logo" />
         <Link to="/home" className="header__left__home">
           Home
         </Link>

@@ -57,7 +57,10 @@ const HomePage = () => {
             View our hand-picked campgrounds from all over the world, or add
             your own.
           </p>
-          <form className="home-page__welcome__content__form">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="home-page__welcome__content__form"
+          >
             <div className="home-page__welcome__content__form__input-container">
               <img
                 className="home-page__welcome__content__form__input-container__icon"
