@@ -1,15 +1,9 @@
 import moment from 'moment';
-import mountUlap from './campsImages/Mount-Ulap.png';
-import calaguas from './campsImages/Calagus-Islands.jpg';
-import latik from './campsImages/Latik-Riverside.jpg';
-import buloy from './campsImages/Buloy-Springs.jpg';
-import onay from './campsImages/Onay-Beach.jpg';
-import seven from './campsImages/seven.jpg';
 
 const allCampgrounds = [
   {
     name: 'Mount Ulap',
-    image: mountUlap,
+    image: '/public/campsImages/Mount-Ulap.png',
     shortDescription:
       'One of the most famous hikes in Benguet is Mt Ulap in Igoton.',
     longDescription:
@@ -34,7 +28,7 @@ const allCampgrounds = [
   },
   {
     name: 'Calaguas Islands',
-    image: calaguas,
+    image: '/public/campsImages/Calagus-Islands.jpg',
     shortDescription:
       'A paradise of islands that can rival the white sand beauty of Boracay.',
     longDescription:
@@ -65,7 +59,7 @@ const allCampgrounds = [
   },
   {
     name: 'Onay Beach',
-    image: onay,
+    image: '/public/campsImages/Onay-Beach.jpg',
     shortDescription:
       'This is one of the best beach camping sites, beautiful and pristine.',
     longDescription:
@@ -96,7 +90,7 @@ const allCampgrounds = [
   },
   {
     name: 'Seven Sisters Waterfall',
-    image: seven,
+    image: '/public/campsImages/seven.jpg',
     shortDescription:
       'The Seven Sisters is the 39th tallest waterfall in Norway.',
     longDescription:
@@ -108,7 +102,7 @@ const allCampgrounds = [
   },
   {
     name: 'Latik Riverside',
-    image: latik,
+    image: '/public/campsImages/Latik-Riverside.jpg',
     shortDescription:
       'Philippines is one of the most dazzling countries in all of Asia.',
     longDescription:
@@ -127,7 +121,7 @@ const allCampgrounds = [
   },
   {
     name: 'Buloy Springs',
-    image: buloy,
+    image: '/public/campsImages/Buloy-Springs.jpg',
     shortDescription: 'A quiet place where mountains and lakes abound.',
     longDescription:
       'Mount Ulap is a 7.7 kilometer moderately trafficked point-to-point trail located near Tuba, Benguet, Philippines that offers the chance to see wildlife and is rated as moderate. The trail is primarily used for hiking.',
