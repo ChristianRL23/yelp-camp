@@ -1,7 +1,6 @@
 import Signup from './../../components/Signup/Signup';
 import './Account.scss';
 import quoteAuthor from './User.svg';
-import logo from './Logo.svg';
 import { Link, useLocation } from 'react-router-dom';
 import Login from '../../components/Login/Login';
 
@@ -12,7 +11,7 @@ const Account = () => {
     <section className="account">
       <div className="account__left">
         <header className="account__left__header">
-          <img src={logo} alt="Logo" />
+          <img src="/images/Logo.svg" alt="Logo" />
           <div className="account__left__header__back">
             <Link to="/home">&#8592; Back to campgrounds</Link>
           </div>
