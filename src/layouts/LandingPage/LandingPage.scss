@@ -59,3 +59,13 @@ $paragraph-font-size: 1.85;
     background-position: center;
   }
 }
+
+.landing-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__text {
+    @include s.paragraph(1.85);
+  }
+}

@@ -1,15 +1,27 @@
 import Button from '../../components/Button/Button';
-import LandingFeature from '../../components/LandingFeature/LandingFeature';
 import './LandingPage.scss';
-import logo from './Logo.svg';
 import airbnbLogo from './Airbnb.svg';
 import bookingLogo from './Booking.svg';
 import plumGuideLogo from './Plum-Guide.svg';
 import { useNavigate } from 'react-router-dom';
+import checkmark from './Checkmark.svg';
+
+const LandingFeature = ({ text }) => {
+  return (
+    <div className="landing-feature">
+      <img
+        className="landing-feature__icon"
+        src={checkmark}
+        alt="Check green"
+      />
+      <p className="landing-feature__text">{text}</p>
+    </div>
+  );
+};
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const showHomePage = () => {
+  const goToHomePage = () => {
     navigate('/home');
   };
 
@@ -17,7 +29,7 @@ const LandingPage = () => {
     <section className="landing-page">
       <div className="landing-page__left">
         <header className="landing-page__left__header">
-          <img src={logo} alt="Company logo" />
+          <img src="/images/Logo.svg" alt="Company logo" />
         </header>
         <div className="landing-page__left__welcome-text">
           <h2 className="landing-page__left__welcome-text__title">
@@ -33,7 +45,7 @@ const LandingPage = () => {
             <LandingFeature text="See locations for all camps." />
           </div>
           <Button
-            clickFn={showHomePage}
+            clickFn={goToHomePage}
             textContent="View Campgrounds"
             theme="black"
           />

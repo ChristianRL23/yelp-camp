@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import allCampgrounds from './allCampgrounds';
+import allCampgrounds from '../data/allCampgrounds';
 
 const campgroundsInitalState = allCampgrounds;
 

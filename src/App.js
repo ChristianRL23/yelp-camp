@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import AvoidNewLog from './AvoidNewLog';
-
 import Account from './layouts/Account/Account';
 import CampgroundActions from './layouts/CamproundActions/CampgroundActions';
 import HomePage from './layouts/HomePage/HomePage';
