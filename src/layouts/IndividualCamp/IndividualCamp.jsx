@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import './IndividualCamp.scss';
 import NotFound from './../NotFound/NotFound';
 import Header from './../../components/Header/Header';
@@ -14,6 +15,9 @@ const IndividualCamp = () => {
   const params = useParams();
   const navigate = useNavigate();
   const allCampgrounds = useSelector((state) => state.campgrounds);
+  const largePhone = useMediaQuery({
+    query: '(max-width: 520px)',
+  });
 
   useEffect(() => {
     const campgroundNameLower = params.campgroundName.split('-');
@@ -88,7 +92,18 @@ const IndividualCamp = () => {
 
                 <Button
                   clickFn={addComment}
-                  style={{ alignSelf: 'flex-end' }}
+                  style={{
+                    alignSelf: `${
+                      largePhone && campground.comments.length === 0
+                        ? 'stretch'
+                        : 'flex-end'
+                    }`,
+                    marginTop: `${
+                      largePhone && campground.comments.length === 0
+                        ? '1.5rem'
+                        : '0'
+                    }`,
+                  }}
                   textContent="Leave a Review"
                   theme="black"
                 />

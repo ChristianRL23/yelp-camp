@@ -8,6 +8,7 @@ $elements-spacing: 1.5rem;
 
   &__info {
     display: flex;
+    gap: 2rem;
     justify-content: space-between;
     margin-bottom: $elements-spacing;
 
