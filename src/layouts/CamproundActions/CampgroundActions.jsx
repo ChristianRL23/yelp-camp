@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import './CampgroundActions.scss';
 import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
@@ -9,6 +10,10 @@ import NewCampground from '../../components/NewCampground/NewCampground';
 const CampgroundActions = () => {
   const [campgroundAction, setCampgroundAction] = useState('');
   const location = useLocation();
+
+  const largePhone = useMediaQuery({
+    query: '(max-height: 850px)',
+  });
 
   useEffect(() => {
     if (location.pathname === '/new-campground') {
@@ -35,7 +40,18 @@ const CampgroundActions = () => {
       )}
 
       {campgroundAction === 'NEW-CAMPGROUND' ? (
-        <Footer />
+        largePhone ? (
+          <Footer />
+        ) : (
+          <Footer
+            style={{
+              position: 'absolute',
+              bottom: '0',
+              marginTop: '0',
+              marginBottom: '3rem',
+            }}
+          />
+        )
       ) : (
         <Footer
           style={{

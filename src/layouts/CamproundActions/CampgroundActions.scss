@@ -3,6 +3,18 @@
 .campground-actions {
   @include s.layoutPadding;
 
+  @media screen and (max-width: 1085px) {
+    padding: 3rem 7rem;
+  }
+
+  @media screen and (max-width: 870px) {
+    padding: 3rem 3.5rem;
+  }
+
+  @media screen and (max-width: 670px) {
+    padding: 3rem 2rem;
+  }
+
   &--comment {
     @extend .campground-actions;
     height: 100vh;
