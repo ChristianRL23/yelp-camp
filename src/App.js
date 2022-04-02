@@ -23,22 +23,30 @@ function App() {
   //GET THE DATA FROM THE LOCAL STORAGE WHEN THE APP IS RE-RENDERED
   useEffect(() => {
     const userLocalStorage = JSON.parse(localStorage.getItem('userLogged'));
-    if (userLocalStorage.logged) {
-      dispatch(
-        userLoggedActions.login({
-          fullName: userLocalStorage.fullName,
-          username: userLocalStorage.username,
-        })
-      );
+    if (userLocalStorage !== null) {
+      if (userLocalStorage.logged) {
+        dispatch(
+          userLoggedActions.login({
+            fullName: userLocalStorage.fullName,
+            username: userLocalStorage.username,
+          })
+        );
+      }
     }
 
     const usersLocalStorage = JSON.parse(localStorage.getItem('users'));
-    dispatch(usersActions.saveUsers(usersLocalStorage));
+    if (userLocalStorage === null) {
+      dispatch(usersActions.saveUsers([]));
+    } else {
+      dispatch(usersActions.saveUsers(usersLocalStorage));
+    }
 
     const campgroundsLocalStorage = JSON.parse(
       localStorage.getItem('campgrounds')
     );
-    dispatch(campgroundsActions.saveCampgrounds(campgroundsLocalStorage));
+    if (campgroundsLocalStorage !== null) {
+      dispatch(campgroundsActions.saveCampgrounds(campgroundsLocalStorage));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
