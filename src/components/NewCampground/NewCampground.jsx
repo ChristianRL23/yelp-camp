@@ -127,8 +127,8 @@ const NewCampground = () => {
           placeholder="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
         />
         <p className="input__image__description">
-          (You can search it in Google, open it in a new tab and copy the url to
-          paste it here)
+          (You can search it in Google, open it in a new tab and copy the URL to
+          paste it here.)
         </p>
         <Input
           onChangeFn={(e) =>
