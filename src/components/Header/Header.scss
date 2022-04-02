@@ -14,6 +14,14 @@
   &__left {
     img {
       height: 3.5rem;
+
+      @media screen and (max-width: 430px) {
+        height: 2.7rem;
+      }
+
+      @media screen and (max-width: 350px) {
+        height: 2.2rem;
+      }
     }
 
     &__home {
@@ -47,5 +55,51 @@
         font-weight: 300;
       }
     }
+  }
+}
+
+.burger-menu {
+  background-color: var(--color-primary-white);
+  gap: 2rem !important;
+  flex-direction: row;
+  align-items: center;
+
+  .head {
+    padding-right: 0;
+
+    .close {
+      span {
+        svg {
+          color: var(--color-primary-black);
+        }
+      }
+    }
+  }
+
+  .menu {
+    padding: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .bm-item {
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--color-secondary-black);
+      padding: 0;
+    }
+  }
+  &--logged {
+    @extend .burger-menu;
+
+    .bm-item:nth-child(1) {
+      font-weight: 400;
+      color: var(--color-primary-black);
+    }
+  }
+
+  &--no-logged {
+    @extend .burger-menu;
   }
 }
