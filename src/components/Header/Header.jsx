@@ -84,7 +84,11 @@ const Header = ({ loggedStateHidden }) => {
       </Burger>
 
       <div className="header__left">
-        <img src="/images/Logo.svg" alt="Logo" />
+        <img
+          onClick={() => navigate('/home')}
+          src="/images/Logo.svg"
+          alt="Logo"
+        />
         {!largePhone && (
           <Link to="/home" className="header__left__home">
             Home
