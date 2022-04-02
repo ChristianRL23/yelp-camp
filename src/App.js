@@ -32,13 +32,15 @@ function App() {
           })
         );
       }
+    } else {
+      localStorage.setItem('userLogged', JSON.stringify(userLoggedState));
     }
 
     const usersLocalStorage = JSON.parse(localStorage.getItem('users'));
-    if (userLocalStorage === null) {
-      dispatch(usersActions.saveUsers([]));
-    } else {
+    if (userLocalStorage !== null) {
       dispatch(usersActions.saveUsers(usersLocalStorage));
+    } else {
+      localStorage.setItem('users', JSON.stringify(usersState));
     }
 
     const campgroundsLocalStorage = JSON.parse(
@@ -46,6 +48,8 @@ function App() {
     );
     if (campgroundsLocalStorage !== null) {
       dispatch(campgroundsActions.saveCampgrounds(campgroundsLocalStorage));
+    } else {
+      localStorage.setItem('campgrounds', JSON.stringify(campgroundsState));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

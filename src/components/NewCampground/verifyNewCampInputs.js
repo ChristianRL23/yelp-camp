@@ -66,7 +66,7 @@ export const verifyNewCampInputs = (
   } else if (!campgroundImageInputState.value.match(regex)) {
     campgroundImageInputDispatch({
       type: 'ERROR',
-      errorMsg: 'Must be a URL.',
+      errorMsg: 'Must be a URL of an image on internet.',
     });
   } else {
     campgroundImageInputDispatch({ type: 'VALIDATE' });
