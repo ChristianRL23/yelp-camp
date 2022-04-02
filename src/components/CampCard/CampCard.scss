@@ -10,8 +10,14 @@ $elements-spacing: 1.3rem;
   &__image {
     width: 100%;
     border-radius: var(--border-radius-element);
-    max-height: 50rem;
+    max-height: 40rem;
+
     margin-bottom: $elements-spacing;
+
+    @media screen and (max-width: 1600px) {
+      height: 20rem;
+      max-height: 40rem;
+    }
 
     @media screen and (max-width: 1200px) {
       height: 18rem;
@@ -38,17 +44,8 @@ $elements-spacing: 1.3rem;
     }
 
     @media screen and (max-width: 320px) {
-      height: 18rem;
-    }
-
-    /*
-    @media screen and (max-width: 590px) {
-      height: 24rem;
-    }
-
-    @media screen and (max-width: 590px) {
       height: 20rem;
-    } */
+    }
   }
 
   &__name {
