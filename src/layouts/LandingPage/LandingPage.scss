@@ -6,20 +6,56 @@ $paragraph-font-size: 1.85;
   display: flex;
   height: 100vh;
 
+  @media screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 6rem;
+  }
+
   &__left {
     @include s.layoutPadding;
     width: 55%;
     height: 100%;
 
+    @media screen and (max-width: 1130px) {
+      padding: 3rem 7rem;
+    }
+
+    @media screen and (max-width: 1050px) {
+      padding: 3rem 3.5rem;
+    }
+
+    @media screen and (max-width: 900px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 670px) {
+      padding: 3rem 2rem;
+    }
+
     &__header {
       margin-bottom: 7rem;
+
+      @media screen and (max-width: 900px) {
+        position: absolute;
+        top: 0;
+        transform: translateY(1.5rem);
+      }
     }
 
     &__welcome-text {
-      width: 80%;
+      max-width: 50rem;
+
+      @media screen and (max-width: 900px) {
+        width: 100%;
+      }
       &__title {
         font-size: 4.5rem;
         margin-bottom: $element-spacing;
+
+        @media screen and (max-width: 900px) {
+          font-size: 3.5rem;
+        }
       }
 
       &__paragraph {
@@ -46,6 +82,19 @@ $paragraph-font-size: 1.85;
         &__logos {
           display: flex;
           gap: 2.5rem;
+          align-content: flex-start;
+          flex-wrap: wrap;
+
+          @media screen and (max-width: 460px) {
+            justify-content: center;
+            gap: 0;
+          }
+
+          img {
+            @media screen and (max-width: 460px) {
+              width: 13rem;
+            }
+          }
         }
       }
     }
@@ -56,7 +105,19 @@ $paragraph-font-size: 1.85;
     width: 45%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+
+    @media screen and (max-height: 840px) {
+      display: none;
+    }
+
+    @media screen and (max-width: 900px) {
+      height: 40rem;
+      background-image: url('./Hero-Image-Horizontal.jpg');
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+    }
   }
 }
 
