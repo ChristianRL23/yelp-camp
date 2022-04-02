@@ -1,3 +1,10 @@
 @use './../../shared' as s;
 
 @include s.campgroundActionsFormStyles('new-campground');
+
+.input__image__description {
+  @include s.paragraph(1.1);
+  margin: -1rem 0;
+  margin-bottom: 1rem;
+  color: var(--color-primary-black);
+}
