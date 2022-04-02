@@ -1,3 +1,9 @@
 .footer {
   margin-top: 4rem;
+
+  img {
+    @media screen and (max-width: 350px) {
+      height: 2.2rem;
+    }
+  }
 }
