@@ -55,6 +55,7 @@ To prevent the user from logging out and/or losing camps and posted comments in 
       <li><a href="https://reactjs.org/docs/hooks-custom.html">Custom Hooks</a></li>
       <li><a href="https://reactrouter.com/">React Router</a></li>
       <li><a href="https://www.npmjs.com/package/react-responsive">React Responsive</a></li>
+      <li><a href="https://www.npmjs.com/package/react-search-autocomplete">React Search Autocomplete</a></li>
       <li><a href="https://www.npmjs.com/package/burger-menu">React Burger Menu</a></li>
     </ul>
   <li><a href="https://redux.js.org/">Redux</a></li>
@@ -72,6 +73,7 @@ To prevent the user from logging out and/or losing camps and posted comments in 
   <li>Sign-up and login.</li>
   <li>Comment on the camps.</li>
   <li>Create and add a new camp.</li>
+  <li>Use of a search bar with autocomplete.</li>
   <li>Maintain protected routes (authorization).</li>
   <li>Use of <a href="https://momentjs.com/">moment.js</a> for time management of comments.</li>
   <li>Data persistence using local storage (users, camps, comments).</li>
